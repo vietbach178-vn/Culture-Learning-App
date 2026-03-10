@@ -5,6 +5,8 @@ import HomeB from "./pages/HomeB";
 import LibraryPage from "./pages/LibraryPage";
 import ContentDetailPage from "./pages/ContentDetailPage";
 import PlayerPage from "./pages/PlayerPage";
+import VocabularyPage from "./pages/VocabularyPage";
+import PracticeHubPage from "./pages/PracticeHubPage";
 import PracticePage from "./pages/PracticePage";
 import CulturePage from "./pages/CulturePage";
 import CultureDetailPage from "./pages/CultureDetailPage";
@@ -15,7 +17,11 @@ import PassportPage from "./pages/PassportPage";
 
 function AppContent() {
   const location = useLocation();
-  const hideNav = location.pathname.startsWith("/player/") || location.pathname.startsWith("/practice/") || location.pathname.startsWith("/lyrics/") || (location.pathname.startsWith("/chat/") && location.pathname !== "/chat");
+  const hideNav =
+    location.pathname.startsWith("/player/") ||
+    location.pathname.startsWith("/practice/") ||
+    location.pathname.startsWith("/lyrics/") ||
+    (location.pathname.startsWith("/chat/") && location.pathname !== "/chat");
 
   return (
     <MobileContainer>
@@ -24,6 +30,8 @@ function AppContent() {
         <Route path="/library" element={<LibraryPage />} />
         <Route path="/library/:id" element={<ContentDetailPage />} />
         <Route path="/player/:id" element={<PlayerPage />} />
+        <Route path="/vocabulary" element={<VocabularyPage />} />
+        <Route path="/practice" element={<PracticeHubPage />} />
         <Route path="/practice/:id" element={<PracticePage />} />
         <Route path="/culture" element={<CulturePage />} />
         <Route path="/culture/:id" element={<CultureDetailPage />} />

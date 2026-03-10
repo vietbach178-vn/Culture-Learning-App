@@ -1,6 +1,6 @@
 # CultureLingo — Học Ngôn Ngữ Qua Văn Hoá
 
-> Brainstorming Document v0.2 — Tư duy sản phẩm theo JTBD → Input → Learning Design → Key Features
+> Brainstorming Document v0.3 — Entity-driven structure: JTBD → Input → Entity Model → Tab Navigation → Key Features
 
 ---
 
@@ -46,11 +46,276 @@ Từ mỗi JTBD, xác định nguồn input **thực tế nhất** mà người 
 
 ---
 
-## 3. Từ Transcript → Learning Design
+## 3. Entity Model — Cấu Trúc Thực Thể
+
+> Hệ thống được xây dựng quanh 4 thực thể cốt lõi, liên kết chặt chẽ với nhau.
+
+### 3.1 Từ vựng (Word) — Đơn vị nhỏ nhất
+
+Từ đơn là đơn vị cơ bản nhất trong hệ thống.
+
+| Thuộc tính | Mô tả |
+|---|---|
+| `word` | Từ gốc (e.g. "cookout", "trippin'") |
+| `meaning` | Nghĩa tiếng Việt |
+| `pronunciation` | IPA / phiên âm |
+| `partOfSpeech` | noun, verb, adj, adv... |
+| `status` | `known` / `unknown` — **user mark thủ công** |
+| `isRichPoint` | Boolean — từ này có điểm văn hoá đặc biệt không? |
+| `culturalStamps` | Link tới 0+ Tem văn hoá (chỉ khi `isRichPoint = true`) |
+| `sources` | Thuộc 1+ Input (từ này xuất hiện trong content nào) |
+| `layers` | 3-layer data: Language, Context, Culture |
+
+### 3.2 Từ ghép / Idiom (Compound) — Entity riêng biệt
+
+Cụm từ, thành ngữ, phrasal verb — không phải tổng nghĩa của từng từ đơn.
+
+| Thuộc tính | Mô tả |
+|---|---|
+| `phrase` | Cụm từ gốc (e.g. "pull up", "mac and cheese", "you good") |
+| `meaning` | Nghĩa cụm từ |
+| `components` | Danh sách Words cấu thành |
+| `type` | `compound` / `idiom` / `phrasal_verb` / `slang` |
+| `status` | `known` / `unknown` — user mark thủ công |
+| `isRichPoint` | Boolean |
+| `culturalStamps` | Link tới 0+ Tem văn hoá |
+| `layers` | 3-layer data: Language, Context, Culture |
+
+### 3.3 Input — Đơn vị nội dung
+
+Mỗi Input là một nội dung user lựa chọn để học.
+
+| Thuộc tính | Mô tả |
+|---|---|
+| `title` | Tên content |
+| `type` | `video` / `podcast` / `episode` / `song` / `book_chapter` |
+| `source` | Netflix, YouTube, Spotify, TED... |
+| `language` | Ngôn ngữ đích |
+| `difficulty` | CEFR level (A1-C2) |
+| `duration` | Thời lượng |
+| `transcript` | Transcript chứa Words + Compounds |
+| `progress` | % hoàn thành của user |
+
+### 3.4 Tem Văn Hoá (Cultural Stamp) — Hybrid 2-Layer Classification
+
+Hệ thống phân loại tem văn hoá theo 2 lớp: **Category** (nhóm lớn) + **Tags** (chi tiết).
+
+#### Layer 1 — Category (6 nhóm)
+
+| # | Category | Ví dụ nội dung |
+|---|---|---|
+| 1 | **Social & Relationships** | Cách chào hỏi, small talk, friendzone, dating culture |
+| 2 | **Food & Dining** | Comfort food, table manners, tipping, potluck |
+| 3 | **Language & Communication** | Slang, sarcasm, register, indirect speech |
+| 4 | **Work & Education** | Workplace culture, hierarchy, email etiquette |
+| 5 | **Entertainment & Media** | Hip-hop, meme culture, K-drama tropes |
+| 6 | **Identity & Values** | Race, gender, religion, generational differences |
+
+#### Layer 2 — Tags (chi tiết, mở rộng linh hoạt)
+
+Mỗi Tem thuộc **1 Category** + **nhiều Tags**. Tags có thể cross-category.
+
+Ví dụ tags: `Slang`, `Sarcasm`, `Table Manners`, `Small Talk`, `Hip-hop`, `Race`, `Generation`, `Religion`, `Humor`, `In-group Language`, `Body Language`, `Taboo`, `Politeness`, `Community`, `Family Dynamics`...
+
+#### Ví dụ Tem văn hoá
+
+```
+Tem: "The Cookout"
+├── Category: Food & Dining
+├── Tags: [Community, Black Culture, Family Dynamics, Social Norms]
+├── Description: BBQ cộng đồng trong văn hoá African American...
+├── Deep Dive: Full article với comparison, do's/don'ts
+└── Linked rich points: "cookout", "pull up", "fix a plate", "bring a dish"
+
+Tem: "Sarcasm in Daily Life"
+├── Category: Language & Communication
+├── Tags: [Humor, Tone, Indirect Speech, British Culture]
+├── Description: Cách dùng sarcasm trong giao tiếp hàng ngày...
+├── Deep Dive: Khi nào sarcasm, khi nào thật, cách nhận biết
+└── Linked rich points: "sure", "whatever", "great", "oh really"
+
+Tem: "The N-Word"
+├── Category: Identity & Values
+├── Tags: [Race, In-group Language, Taboo, Hip-hop, History]
+├── Description: Từ nhạy cảm nhất trong tiếng Anh Mỹ...
+├── Deep Dive: Lịch sử, ai được dùng, vì sao learner không nên dùng
+└── Linked rich points: "nigga", "the n-word"
+```
+
+### 3.5 Entity Relationships
+
+```
+Input ──has──→ Transcript ──contains──→ Word (đơn từ)
+                                    └──→ Compound (từ ghép/idiom)
+                                              │
+                                       isRichPoint?
+                                         │ yes
+                                         ▼
+                                  Cultural Stamp
+                                   ├── Category (1)
+                                   └── Tags[] (nhiều)
+
+User ──marks──→ Word/Compound status (known/unknown)
+User ──collects──→ Cultural Stamps (via learning rich points)
+```
+
+**Luồng dữ liệu:**
+1. User chọn **Input** (video, podcast...) → app tạo transcript
+2. AI phân tích transcript → extract **Words** + **Compounds**
+3. AI flag **Rich Points** → link tới **Cultural Stamps**
+4. User xem content → tap từ → thấy 3-layer breakdown
+5. User **mark thủ công** known/unknown cho từng từ
+6. Từ rich point đã học → stamp progress tăng lên
+
+---
+
+## 4. Tab Navigation v2 — Cấu Trúc 5 Tab
+
+> Thay đổi từ 4 tab (Home | Library | Chat | Passport) → 5 tab entity-driven
+
+### Overview
+
+```
+┌─────────┬──────────┬────────────┬──────────┬──────────┐
+│  Home   │ Library  │ Vocabulary │ Practice │ Passport │
+│  🏠     │  📚     │  📝       │  🎯     │  🌍     │
+└─────────┴──────────┴────────────┴──────────┴──────────┘
+```
+
+| Tab | Mục đích | Nội dung chính |
+|-----|----------|----------------|
+| **Home** | Entrypoint tổng quan | Continue learning, quick actions, daily stats, SRS reminder |
+| **Library** | Browse & import content | Search, browse by type/culture, paste URL tạo bài học |
+| **Vocabulary** | Quản lý từ vựng + Ôn tập | Word bank + Filter + SRS spaced repetition review |
+| **Practice** | Hub luyện tập tổng hợp | Scene Practice, Fill-in-blank, Speaking, Chat AI, Flashcard |
+| **Passport** | Profile & tiến độ | Cultural stamps collection, skill breakdown, stats |
+
+### Home — Entrypoint
+
+```
+┌──────────────────────────────────────────┐
+│  Xin chào, Minh 👋         🔥 12 ngày   │
+│                                          │
+│  ┌────┐ ┌────┐ ┌────┐ ┌────┐           │
+│  │142 │ │ 5  │ │ B1 │ │1250│           │
+│  │từ  │ │VH  │ │lv  │ │ XP │           │
+│  └────┘ └────┘ └────┘ └────┘           │
+│                                          │
+│  ⏰ 8 từ cần ôn hôm nay → [Ôn ngay]    │
+│                                          │
+│  📖 TIẾP TỤC HỌC                        │
+│  ├── Atlanta S2E5 ████░░ 40%            │
+│  └── Friends S1E1 ██░░░░ 20%            │
+│                                          │
+│  ⚡ HÀNH ĐỘNG NHANH                      │
+│  ┌─────────┐ ┌──────────┐               │
+│  │🎬 Xem   │ │📝 Ôn từ  │ → Vocab tab  │
+│  │ phim    │ │ vựng     │               │
+│  └─────────┘ └──────────┘               │
+│  ┌─────────┐ ┌──────────┐               │
+│  │🎯 Luyện │ │➕ Thêm   │ → Library    │
+│  │ tập     │ │ mới      │               │
+│  └─────────┘ └──────────┘               │
+│                                          │
+│  🎯 GỢI Ý PRACTICE                      │
+│  Scene: Atlanta Barbershop → [Luyện]     │
+└──────────────────────────────────────────┘
+```
+
+Home là trung tâm điều hướng:
+- **SRS reminder** → dẫn tới Vocabulary tab
+- **Continue learning** → dẫn tới Player (trong Library flow)
+- **Quick actions** → dẫn tới Library, Vocabulary, Practice
+- **Practice suggestion** → dẫn tới Practice tab
+
+### Vocabulary — Word Bank + SRS Review
+
+```
+┌──────────────────────────────────────────┐
+│  📝 TỪ VỰNG CỦA TÔI                     │
+│                                          │
+│  [Danh sách]        [Ôn tập 🔔 8]       │
+│                                          │
+│  ── Tab: Danh sách ──                    │
+│  Filter:                                 │
+│  [All] [Chưa biết] [Rich Point ⭐]      │
+│  [Theo Input ▼] [Theo Tem ▼]            │
+│  [Từ đơn] [Từ ghép/Idiom]               │
+│                                          │
+│  ┌────────────────────────────────────┐  │
+│  │ cookout         ⭐ 🏷Food          │  │
+│  │ n. — BBQ cộng đồng                │  │
+│  │ Status: [Chưa biết]  [Đã biết ✓]  │  │
+│  ├────────────────────────────────────┤  │
+│  │ pull up          ⭐ 🏷Social       │  │
+│  │ phrasal v. — ghé qua, đến         │  │
+│  │ Status: [Chưa biết]  [Đã biết ✓]  │  │
+│  ├────────────────────────────────────┤  │
+│  │ deadline                           │  │
+│  │ n. — hạn chót                      │  │
+│  │ Status: [Chưa biết]  [✓ Đã biết]  │  │
+│  └────────────────────────────────────┘  │
+│                                          │
+│  ── Tab: Ôn tập (SRS) ──               │
+│  8 từ cần ôn hôm nay                    │
+│  [Bắt đầu ôn tập]                       │
+│                                          │
+│  Flashcard mode:                         │
+│  ┌────────────────────────┐              │
+│  │      "cookout"         │              │
+│  │                        │              │
+│  │    [Tap to reveal]     │              │
+│  │                        │              │
+│  │  [Khó] [OK] [Dễ]      │              │
+│  └────────────────────────┘              │
+└──────────────────────────────────────────┘
+```
+
+**Chức năng chính:**
+- **Word bank**: Tất cả từ đã gặp, lọc theo known/unknown, rich point, input source, tem văn hoá, loại (từ đơn vs từ ghép)
+- **Manual mark**: User bấm toggle known/unknown cho từng từ
+- **SRS Review**: Spaced repetition flashcard, hiện số từ cần ôn, interval tự điều chỉnh theo đánh giá (Khó/OK/Dễ)
+- **Tap vào từ** → mở 3-Layer Word Explorer (chi tiết Language/Context/Culture)
+
+### Practice — Hub Luyện Tập
+
+```
+┌──────────────────────────────────────────┐
+│  🎯 LUYỆN TẬP                            │
+│                                          │
+│  🎬 Scene Practice                       │
+│  3 scenes sẵn sàng từ content đã xem    │
+│  ├── Atlanta S2E5 — Barbershop           │
+│  ├── Friends S1E1 — Central Perk         │
+│  └── Parasite — Dinner scene             │
+│                                          │
+│  📝 Fill-in-the-blank                    │
+│  12 câu từ Atlanta, 8 câu từ Friends     │
+│                                          │
+│  🗣️ Chat AI                             │
+│  Luyện hội thoại với AI theo scenario    │
+│  ├── Cookout invitation                  │
+│  ├── Ordering street food                │
+│  └── Job interview small talk            │
+│                                          │
+│  🎤 Speaking Practice                    │
+│  Lặp lại câu, đóng vai nhân vật         │
+│                                          │
+│  🃏 Flashcard Review                     │
+│  Quick review → link tới Vocab SRS       │
+│                                          │
+└──────────────────────────────────────────┘
+```
+
+**Lưu ý:** Chat AI (trước đây là tab riêng) nay nằm trong Practice Hub — bản chất là một dạng luyện tập hội thoại.
+
+---
+
+## 5. Từ Transcript → Learning Design (Content Processing)
 
 Đây là phần cốt lõi: **Khi có transcript/text rồi, ta tạo ra nội dung học như thế nào?**
 
-### 3.1 Nguyên tắc: "Deep Understanding" — không chỉ dịch, mà HIỂU
+### 5.1 Nguyên tắc: "Deep Understanding" — không chỉ dịch, mà HIỂU
 
 Lấy ví dụ 1 câu từ phim: *"Yo what's good my nigga, you trippin'"*
 
@@ -85,7 +350,7 @@ Cách học truyền thống chỉ dịch: "Ê sao rồi bạn, bạn làm quá 
 └─────────────────────────────────────────────────────────────┘
 ```
 
-### 3.2 Content Processing Pipeline
+### 5.2 Content Processing Pipeline
 
 Từ raw transcript → learning content theo 3 layers:
 
@@ -135,7 +400,7 @@ Raw Transcript (subtitle/text/lyrics)
 └─────────────────────────────────────┘
 ```
 
-### 3.3 Learning Design per JTBD
+### 5.3 Learning Design per JTBD
 
 #### J1: Xem phim không sub → "Scene-Based Learning"
 
@@ -196,7 +461,7 @@ Raw Transcript (subtitle/text/lyrics)
 
 ---
 
-## 4. Key Features — Mô Tả UX Chi Tiết
+## 6. Key Features — Mô Tả UX Chi Tiết
 
 ### Feature 1: Smart Transcript Player
 
@@ -646,22 +911,23 @@ Raw Transcript (subtitle/text/lyrics)
 
 ---
 
-## 5. Feature Summary & Priority
+## 7. Feature Summary & Priority
 
-| # | Feature | JTBD served | Priority (demo) | Lý do |
-|---|---|---|---|---|
-| F1 | **Smart Transcript Player** | J1, J3, J6 | P0 — Must have | Core experience, mọi thứ xây trên này |
-| F2 | **3-Layer Word Explorer** | All | P0 — Must have | Unique selling point, tạo khác biệt |
-| F3 | **Scene Practice Mode** | J1, J4 | P0 — Must have | Đây là "bài học" chính |
-| F4 | **Culture Deep Dive Cards** | J5 | P1 — Should have | Tạo depth, nhưng demo có thể fake vài cards |
-| F5 | **AI Conversation Partner** | J4, J5 | P1 — Should have | Rất hấp dẫn nhưng cần AI integration |
-| F6 | **Lyrics Lab** | J3 | P2 — Nice to have | Engaging nhưng không phải core flow |
-| F7 | **Cultural Passport** | All | P1 — Should have | Gamification + progress tracking |
-| F8 | **Content Library** | All | P1 — Should have | Content discovery, nhưng demo có thể hardcode |
+| # | Feature | JTBD served | Tab | Priority | Lý do |
+|---|---|---|---|---|---|
+| F1 | **Smart Transcript Player** | J1, J3, J6 | Library → Player | P0 — Must have | Core experience, mọi thứ xây trên này |
+| F2 | **3-Layer Word Explorer** | All | Popup (từ Player/Vocab) | P0 — Must have | Unique selling point, tạo khác biệt |
+| F3 | **Scene Practice Mode** | J1, J4 | Practice | P0 — Must have | Đây là "bài học" chính |
+| F4 | **Culture Deep Dive Cards** | J5 | Passport + Vocab | P1 — Should have | Tạo depth, nhưng demo có thể fake vài cards |
+| F5 | **AI Conversation Partner** | J4, J5 | Practice (gộp) | P1 — Should have | Gộp vào Practice Hub thay vì tab riêng |
+| F6 | **Lyrics Lab** | J3 | Library → Player | P2 — Nice to have | Engaging nhưng không phải core flow |
+| F7 | **Cultural Passport** | All | Passport | P1 — Should have | Gamification + progress tracking |
+| F8 | **Content Library** | All | Library | P1 — Should have | Content discovery, nhưng demo có thể hardcode |
+| F9 | **Vocabulary Management** | All | Vocabulary | P0 — Must have | Word bank + SRS Review, quản lý known/unknown |
 
 ---
 
-## 6. User Flow Tổng Quan
+## 8. User Flow Tổng Quan (v2 — 5 Tab)
 
 ```
 ┌─────────────────────────────────────────────────────────┐
@@ -673,35 +939,47 @@ Raw Transcript (subtitle/text/lyrics)
 │  └─ Chọn mục tiêu (JTBD): "Tôi muốn xem phim không     │
 │     sub" / "Tôi muốn giao tiếp tự nhiên" / ...          │
 │                                                          │
-│  DAILY EXPERIENCE                                        │
-│  ├─ Home: Content recommended + continue learning        │
-│  ├─ Learn: Smart Transcript Player + Scene Practice      │
-│  ├─ Review: Spaced repetition vocab + culture cards      │
-│  ├─ Talk: AI Conversation (daily scenario)               │
-│  └─ Passport: Progress, badges, streak                   │
+│  DAILY EXPERIENCE (5 Tab)                                │
+│  ├─ 🏠 Home: SRS reminder, continue learning,           │
+│  │   quick actions → dẫn tới các tab khác                │
+│  ├─ 📚 Library: Tìm/import content, paste URL            │
+│  ├─ 📝 Vocabulary: Word bank, filter, mark known/unknown │
+│  │   + SRS spaced repetition ôn tập hàng ngày            │
+│  ├─ 🎯 Practice: Scene Practice, Fill-in-blank,          │
+│  │   Chat AI, Speaking, Flashcard                        │
+│  └─ 🌍 Passport: Cultural stamps, skills, stats          │
 │                                                          │
 │  CONTENT LOOP                                            │
-│  ├─ User chọn/tìm content (hoặc app recommend)          │
+│  ├─ User chọn/tìm content (Library tab hoặc Home)        │
 │  ├─ Xem/nghe với Smart Transcript Player                 │
-│  ├─ Tap từ mới → 3-Layer Explorer → lưu vocab            │
-│  ├─ Gặp cultural reference → Culture Deep Dive           │
-│  ├─ Làm Scene Practice (listen, speak, fill)             │
-│  ├─ AI Conversation về chủ đề liên quan                  │
-│  └─ Vocab + Culture cards vào spaced repetition          │
-│     → quay lại ôn vào ngày mai                           │
+│  ├─ Tap từ mới → 3-Layer Explorer                        │
+│  ├─ Mark known/unknown → lưu vào Vocabulary tab          │
+│  ├─ Gặp rich point → link tới Cultural Stamp             │
+│  ├─ Làm Practice (scene, fill, chat AI, speak)           │
+│  └─ SRS tự nhắc ôn từ vào ngày mai (Home + Vocab tab)   │
+│                                                          │
+│  ENTITY FLOW                                             │
+│  ├─ Input → extract Words + Compounds                    │
+│  ├─ AI flag Rich Points → link Cultural Stamps           │
+│  ├─ User mark known/unknown thủ công                     │
+│  ├─ Unknown words → SRS queue                            │
+│  └─ Rich points learned → Stamp progress tăng            │
 │                                                          │
 └─────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## 7. Câu Hỏi Mở
+## 9. Câu Hỏi Mở
 
 1. **Ưu tiên ngôn ngữ nào cho demo?** (Anh, Hàn, Nhật, Việt?)
 2. **"Bring Your Own Content" có nên là core feature?** (User paste URL → app tạo bài học)
 3. **Community features:** Có cần social element (share progress, discussion) không?
 4. **Monetization:** Freemium (giới hạn content/ngày) hay subscription?
+5. **SRS algorithm:** Dùng SM-2 (Anki-style) hay custom interval? Áp dụng cho cả Words lẫn Compounds?
+6. **Tem văn hoá - Tags mở rộng:** Cho phép user tự tạo tags hay chỉ system-defined?
+7. **Practice difficulty scaling:** Mỗi loại practice trong Hub có tự điều chỉnh độ khó theo user level không?
 
 ---
 
-*v0.2 — Restructured theo JTBD → Input → Learning Design → Key Features*
+*v0.3 — Entity-driven restructure: Entity Model, 5-Tab Navigation, Hybrid Cultural Stamps*

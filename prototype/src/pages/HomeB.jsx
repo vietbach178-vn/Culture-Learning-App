@@ -2,12 +2,13 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { userProgress } from "../data/userProgress";
 import { contentItems, sourceIcons, difficultyColors } from "../data/library";
+import { getSrsQueue } from "../data/vocabulary";
 
 const quickActions = [
-  { label: "Xem phim", icon: "🎬", color: "bg-purple-100", desc: "Học từ phim/series" },
-  { label: "Luyện nói", icon: "🗣️", color: "bg-pink-100", desc: "AI Conversation" },
-  { label: "Văn hóa", icon: "🌍", color: "bg-blue-100", desc: "Culture Deep Dive" },
-  { label: "Thêm mới", icon: "➕", color: "bg-green-100", desc: "Paste URL" },
+  { label: "Xem phim", icon: "🎬", color: "bg-purple-100", desc: "Học từ phim/series", to: "/library" },
+  { label: "Ôn từ vựng", icon: "📝", color: "bg-blue-100", desc: "Word bank & SRS", to: "/vocabulary" },
+  { label: "Luyện tập", icon: "🎯", color: "bg-pink-100", desc: "Practice Hub", to: "/practice" },
+  { label: "Thêm mới", icon: "➕", color: "bg-green-100", desc: "Paste URL", to: null },
 ];
 
 export default function HomeB() {
@@ -16,6 +17,8 @@ export default function HomeB() {
   const [showUrlInput, setShowUrlInput] = useState(false);
   const myContent = contentItems.filter((c) => c.imported);
   const suggested = contentItems.filter((c) => !c.imported).slice(0, 5);
+  const srsCount = getSrsQueue().length;
+  const practiceContent = contentItems.filter((c) => c.hasPractice && c.imported);
 
   return (
     <div className="pb-20">
@@ -55,6 +58,27 @@ export default function HomeB() {
       </div>
 
       <div className="px-4 -mt-4">
+        {/* SRS Reminder */}
+        {srsCount > 0 && (
+          <button
+            onClick={() => navigate("/vocabulary")}
+            className="w-full mb-4 bg-gradient-to-r from-accent/10 to-orange-100 rounded-2xl p-4 border border-accent/20 flex items-center gap-3 text-left hover:shadow-sm transition-shadow"
+          >
+            <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0">
+              <span className="text-lg">🔔</span>
+            </div>
+            <div className="flex-1">
+              <p className="text-sm font-semibold text-txt">
+                {srsCount} từ cần ôn hôm nay
+              </p>
+              <p className="text-[10px] text-txt-secondary">Ôn tập để nhớ lâu hơn</p>
+            </div>
+            <span className="bg-accent text-white text-xs font-bold px-3 py-1.5 rounded-full">
+              Ôn ngay
+            </span>
+          </button>
+        )}
+
         {/* Continue Learning */}
         {myContent.length > 0 && (
           <div className="mb-5">
@@ -100,7 +124,11 @@ export default function HomeB() {
               <button
                 key={action.label}
                 onClick={() => {
-                  if (action.label === "Thêm mới") setShowUrlInput(!showUrlInput);
+                  if (action.to) {
+                    navigate(action.to);
+                  } else {
+                    setShowUrlInput(!showUrlInput);
+                  }
                 }}
                 className="flex flex-col items-center gap-1.5 p-3 rounded-xl bg-card border border-border hover:shadow-sm transition-shadow"
               >
@@ -140,12 +168,13 @@ export default function HomeB() {
         <div className="mb-5">
           <div className="flex items-center justify-between mb-3">
             <h2 className="text-sm font-bold text-txt">Gợi ý cho bạn</h2>
-            <button className="text-xs font-semibold text-primary">Xem tất cả</button>
+            <button onClick={() => navigate("/library")} className="text-xs font-semibold text-primary">Xem tất cả</button>
           </div>
           <div className="flex gap-3 overflow-x-auto hide-scrollbar -mx-4 px-4 pb-2">
             {suggested.map((item) => (
               <button
                 key={item.id}
+                onClick={() => navigate(`/library/${item.id}`)}
                 className="flex-shrink-0 w-[180px] bg-card rounded-xl overflow-hidden shadow-sm border border-border hover:shadow-md transition-shadow text-left"
               >
                 <div className="h-20 bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
@@ -165,6 +194,30 @@ export default function HomeB() {
           </div>
         </div>
 
+        {/* Practice Suggestion */}
+        {practiceContent.length > 0 && (
+          <div className="mb-5">
+            <button
+              onClick={() => navigate("/practice")}
+              className="w-full bg-gradient-to-br from-primary/5 to-secondary/5 rounded-2xl p-4 border border-primary/10 text-left hover:shadow-sm transition-shadow"
+            >
+              <h3 className="text-xs font-bold text-txt mb-2">Gợi ý luyện tập</h3>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <span className="text-lg">🎬</span>
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-sm font-medium text-txt line-clamp-1">{practiceContent[0].title}</p>
+                  <p className="text-[10px] text-txt-secondary">Scene Practice · {practiceContent[0].scenes} scenes</p>
+                </div>
+                <span className="bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-full">
+                  Luyện
+                </span>
+              </div>
+            </button>
+          </div>
+        )}
+
         {/* Weekly Stats */}
         <div className="mb-5">
           <h2 className="text-sm font-bold text-txt mb-3">Tuần này</h2>
@@ -176,27 +229,6 @@ export default function HomeB() {
             <div className="bg-card rounded-xl p-3 border border-border">
               <p className="text-xl font-bold text-secondary">{userProgress.weeklyStats.wordsAdded}</p>
               <p className="text-[10px] text-txt-secondary">từ mới</p>
-            </div>
-          </div>
-        </div>
-
-        {/* 3 Layer Highlight */}
-        <div className="mb-4">
-          <div className="bg-gradient-to-br from-primary/5 to-accent/5 rounded-2xl p-4 border border-primary/10">
-            <h3 className="text-xs font-bold text-txt mb-2">Hiểu sâu 3 tầng 💡</h3>
-            <div className="flex gap-2">
-              <div className="flex-1 bg-primary/10 rounded-lg p-2 text-center">
-                <p className="text-sm mb-0.5">📝</p>
-                <p className="text-[9px] font-semibold text-primary">Language</p>
-              </div>
-              <div className="flex-1 bg-secondary/10 rounded-lg p-2 text-center">
-                <p className="text-sm mb-0.5">🎯</p>
-                <p className="text-[9px] font-semibold text-secondary">Context</p>
-              </div>
-              <div className="flex-1 bg-accent/10 rounded-lg p-2 text-center">
-                <p className="text-sm mb-0.5">🌍</p>
-                <p className="text-[9px] font-semibold text-accent">Culture</p>
-              </div>
             </div>
           </div>
         </div>
