@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tính năng 1-4 — CultureLingo</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="nav">
+  <div class="container">
+    <div class="nav-logo">Culture<span>Lingo</span></div>
+    <ul class="nav-links">
+      <li><a href="index.html">Tổng quan</a></li>
+      <li><a href="input.html">Dữ liệu đầu vào</a></li>
+      <li><a href="learning.html">Thiết kế học tập</a></li>
+      <li><a href="features-1.html" class="active">Tính năng 1-4</a></li>
+      <li><a href="features-2.html">Tính năng 5-8</a></li>
+      <li><a href="flow.html">Luồng trải nghiệm</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Header -->
+<section class="hero" style="padding-bottom: var(--space-lg);">
+  <div class="container">
+    <div class="hero-badge">Bước 4 trong Product Logic</div>
+    <h1>Key Features <span class="gradient-text">1 — 4</span></h1>
+    <p>4 tính năng cốt lõi tạo nên trải nghiệm học chính. Mỗi tính năng đều có UX mockup chi tiết.</p>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- FEATURE 1: Smart Transcript Player -->
+<!-- ============================================ -->
+<section class="section">
+  <div class="container">
+    <div class="feature-card">
+      <div class="feature-header">
+        <div class="feature-number">1</div>
+        <div>
+          <h3 style="margin: 0;">Smart Transcript Player</h3>
+          <div class="feature-meta">Biến bất kỳ video/audio nào thành bài học tương tác &nbsp; <span class="tag p0">P0 — Must have</span></div>
+        </div>
+      </div>
+
+      <p style="color: var(--text-secondary); margin-bottom: var(--space-lg);">
+        Đây là tính năng nền tảng — mọi thứ xây trên nó. Video/audio player ở trên, transcript cuộn đồng bộ bên dưới. Tap vào bất kỳ từ nào → popup 3 tầng hiện ra.
+      </p>
+
+      <div style="display: flex; gap: var(--space-xl); flex-wrap: wrap; align-items: flex-start;">
+        <!-- Phone Mockup — INTERACTIVE -->
+        <div class="phone-mockup" style="flex-shrink: 0;" id="f1-phone">
+          <div class="phone-screen">
+            <div class="phone-status-bar">
+              <span>9:41</span>
+              <span>📶 🔋</span>
+            </div>
+
+            <!-- Video area -->
+            <div style="background: #1a1a2e; padding: 20px; text-align: center; color: white;">
+              <div style="font-size: 2rem; margin-bottom: 4px; cursor: pointer;" id="f1-play-icon" onclick="f1TogglePlay()">▶️</div>
+              <div style="font-size: 0.7rem; opacity: 0.7;" id="f1-time-display">Atlanta S2E5 — <span id="f1-current-time">00:38</span></div>
+              <div style="display: flex; justify-content: center; gap: 16px; margin-top: 8px; font-size: 0.7rem;">
+                <span style="cursor:pointer" onclick="f1SeekBack()">⏪</span>
+                <span style="cursor:pointer" onclick="f1TogglePlay()" id="f1-play-small">▶️</span>
+                <span style="cursor:pointer" onclick="f1SeekForward()">⏩</span>
+                <span class="speed-badge" onclick="f1CycleSpeed()" id="f1-speed">🐢 0.75x</span>
+                <span style="cursor:pointer" onclick="f1ToggleLoop()" id="f1-loop">🔄</span>
+              </div>
+            </div>
+
+            <!-- Tab content areas -->
+            <div id="f1-tab-transcript" class="phone-body" style="font-size: 0.8rem;">
+              <div style="font-size: 0.7rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;">Transcript</div>
+
+              <div class="phone-transcript-line" style="cursor:pointer" onclick="f1SelectLine(0)" id="f1-line-0">
+                <span class="time">00:32</span>
+                <span>"Yo what's good, you coming to the <strong class="clickable-word" style="color: var(--secondary);" onclick="event.stopPropagation(); f1ShowPopup('cookout')">cookout</strong> this weekend?"</span>
+              </div>
+
+              <div class="phone-transcript-line" style="cursor:pointer" onclick="f1SelectLine(1)" id="f1-line-1">
+                <span class="time">00:35</span>
+                <span>"For sure! Should I bring something? Like a dish?"</span>
+              </div>
+
+              <div class="phone-transcript-line active pulsing" style="cursor:pointer" onclick="f1SelectLine(2)" id="f1-line-2">
+                <span class="time">00:38</span>
+                <span>"Nah <strong class="clickable-word" style="color: var(--primary);" onclick="event.stopPropagation(); f1ShowPopup('yougood')">you good</strong>, just <strong class="clickable-word" style="color: var(--primary); text-decoration: underline;" onclick="event.stopPropagation(); f1ShowPopup('pullup')">pull up</strong>. My mom's making her famous <strong class="clickable-word" style="color: var(--secondary);" onclick="event.stopPropagation(); f1ShowPopup('macandcheese')">mac and cheese</strong>"</span>
+              </div>
+
+              <!-- Dynamic Popup -->
+              <div class="phone-word-popup popup-animated" id="f1-popup">
+                <div class="word-title" id="f1-popup-title">"pull up"</div>
+                <div style="padding: 6px 0; font-size: 0.78rem; line-height: 1.6;" id="f1-popup-body">
+                  <p><strong>🔤 Nghĩa:</strong> đến, ghé qua (informal)</p>
+                  <p style="color: var(--text-secondary); font-size: 0.75rem;">Không phải "kéo lên" (nghĩa gốc)</p>
+                  <p style="margin-top: 4px;"><strong>🗣️ Ngữ cảnh:</strong> Chỉ dùng với bạn thân, casual</p>
+                  <p style="margin-top: 4px;"><strong>🌍 Văn hoá:</strong> <a href="#" style="font-size: 0.75rem;">Tìm hiểu về Cookout culture →</a></p>
+                </div>
+                <div style="display: flex; gap: 6px; margin-top: 8px;">
+                  <span class="phone-btn primary" id="f1-save-btn" onclick="f1SaveVocab(this)">+ Từ vựng</span>
+                  <span class="phone-btn outline" onclick="f1Practice()">Luyện tập</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Từ vựng tab -->
+            <div id="f1-tab-vocab" class="phone-body popup-hidden" style="font-size: 0.8rem;">
+              <div style="font-size: 0.7rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;">Từ vựng đã lưu</div>
+              <div id="f1-vocab-list">
+                <div style="padding: 8px; border: 1px solid var(--border); border-radius: 8px; margin-bottom: 6px; font-size: 0.78rem;">
+                  <strong style="color: var(--primary);">pull up</strong> — đến, ghé qua (informal)
+                </div>
+                <div style="padding: 8px; border: 1px solid var(--border); border-radius: 8px; margin-bottom: 6px; font-size: 0.78rem;">
+                  <strong style="color: var(--secondary);">cookout</strong> — tiệc nướng ngoài trời
+                </div>
+              </div>
+              <div style="text-align: center; color: var(--text-light); font-size: 0.75rem; margin-top: 12px;">Tap vào từ trong transcript để thêm từ mới</div>
+            </div>
+
+            <!-- Văn hoá tab -->
+            <div id="f1-tab-culture" class="phone-body popup-hidden" style="font-size: 0.8rem;">
+              <div style="font-size: 0.7rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;">Ghi chú văn hoá</div>
+              <div style="background: #FFF8E1; border-radius: 8px; padding: 10px; margin-bottom: 8px;">
+                <div style="font-weight: 700; font-size: 0.75rem; color: #F57F17; margin-bottom: 4px;">🍖 The Cookout</div>
+                <p style="font-size: 0.75rem; color: var(--text-secondary);">Trong văn hoá African American, cookout là dịp cộng đồng gắn kết — không chỉ là BBQ.</p>
+              </div>
+              <div style="background: var(--primary-bg); border-radius: 8px; padding: 10px;">
+                <div style="font-weight: 700; font-size: 0.75rem; color: var(--primary); margin-bottom: 4px;">🔀 So sánh</div>
+                <p style="font-size: 0.75rem; color: var(--text-secondary);">Tương tự đám giỗ / tiệc tất niên ở Việt Nam — cả xóm tụ họp, mỗi nhà mang 1 món.</p>
+              </div>
+            </div>
+
+            <div class="phone-bottom-bar">
+              <div class="tab-item" onclick="f1SwitchTab('transcript')" id="f1-btab-transcript">Transcript</div>
+              <div class="tab-item active" onclick="f1SwitchTab('vocab')" id="f1-btab-vocab">Từ vựng</div>
+              <div class="tab-item" onclick="f1SwitchTab('culture')" id="f1-btab-culture">Văn hoá</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- UX Details -->
+        <div style="flex: 1; min-width: 280px;">
+          <h4 style="margin-bottom: var(--space-md);">Chi tiết UX</h4>
+          <ul style="list-style: none; font-size: 0.9rem;">
+            <li style="padding: 8px 0; border-bottom: 1px solid var(--border);">
+              <strong>Transcript đồng bộ:</strong> Cuộn real-time theo video, câu đang phát được highlight
+            </li>
+            <li style="padding: 8px 0; border-bottom: 1px solid var(--border);">
+              <strong>Tap vào từ/cụm từ:</strong> Popup 3 tầng (Language / Context / Culture)
+            </li>
+            <li style="padding: 8px 0; border-bottom: 1px solid var(--border);">
+              <strong>Slow mode:</strong> Phát chậm từng câu, lặp lại đến khi nghe rõ
+            </li>
+            <li style="padding: 8px 0; border-bottom: 1px solid var(--border);">
+              <strong>Loop mode:</strong> Lặp 1 câu cho đến khi user hiểu
+            </li>
+            <li style="padding: 8px 0; border-bottom: 1px solid var(--border);">
+              <strong>Auto-highlight:</strong> Từ mới tự động được đánh dấu dựa trên level hiện tại
+            </li>
+            <li style="padding: 8px 0; border-bottom: 1px solid var(--border);">
+              <strong>"+ Từ vựng":</strong> Lưu từ vào hệ thống spaced repetition
+            </li>
+            <li style="padding: 8px 0;">
+              <strong>"Luyện tập":</strong> Nhảy sang bài tập cho câu/từ đó ngay lập tức
+            </li>
+          </ul>
+
+          <div class="highlight-box purple" style="margin-top: var(--space-md);">
+            <p style="font-size: 0.85rem;"><strong>JTBD phục vụ:</strong> J1 (Xem phim), J3 (Nghe nhạc), J6 (Nghe podcast)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- FEATURE 2: 3-Layer Word Explorer -->
+<!-- ============================================ -->
+<section class="section" style="background: var(--primary-bg);">
+  <div class="container">
+    <div class="feature-card" style="background: white;">
+      <div class="feature-header">
+        <div class="feature-number">2</div>
+        <div>
+          <h3 style="margin: 0;">3-Layer Word Explorer</h3>
+          <div class="feature-meta">Mỗi từ/cụm từ được HIỂU ở 3 tầng, không chỉ dịch &nbsp; <span class="tag p0">P0 — Must have</span></div>
+        </div>
+      </div>
+
+      <p style="color: var(--text-secondary); margin-bottom: var(--space-lg);">
+        Đây là <strong>Unique Selling Point</strong> — điểm khác biệt lớn nhất so với mọi app khác. 3 tab chuyển đổi: Language → Context → Culture. Beginner mặc định mở Language, Intermediate+ có thể set mặc định Culture.
+      </p>
+
+      <div style="display: flex; gap: var(--space-xl); flex-wrap: wrap; align-items: flex-start;">
+        <!-- Phone Mockup — INTERACTIVE -->
+        <div class="phone-mockup" style="flex-shrink: 0;" id="f2-phone">
+          <div class="phone-screen">
+            <div class="phone-status-bar">
+              <span>9:41</span>
+              <span>📶 🔋</span>
+            </div>
+            <div class="phone-header" style="cursor: pointer;" onclick="f2PlayAudio()">
+              "mac and cheese" <span id="f2-speaker" style="transition: transform 0.2s;">🔊</span>
+            </div>
+
+            <div class="phone-tabs">
+              <div class="phone-tab" id="f2-tab-language" onclick="f2SwitchTab('language')">Language</div>
+              <div class="phone-tab" id="f2-tab-context" onclick="f2SwitchTab('context')">Context</div>
+              <div class="phone-tab active" id="f2-tab-culture" onclick="f2SwitchTab('culture')">Culture</div>
+            </div>
+
+            <!-- Language tab content -->
+            <div class="phone-body popup-hidden tab-content-animated" id="f2-content-language" style="font-size: 0.8rem; line-height: 1.7;">
+              <p><strong>🔤 Nghĩa:</strong> Macaroni and cheese — mì ống trộn phô mai</p>
+              <p style="color: var(--text-secondary); font-size: 0.75rem; margin-top: 4px;">Viết tắt: "mac and cheese" hoặc "mac n cheese" (rất phổ biến)</p>
+              <p style="margin-top: 10px;"><strong>📐 Phát âm:</strong> /mæk ən tʃiːz/</p>
+              <p style="margin-top: 4px; color: var(--text-secondary); font-size: 0.75rem;">Trong hội thoại nhanh: "mac n cheese" → /mæk.ən.tʃiːz/ — "and" gần như biến mất</p>
+              <p style="margin-top: 10px;"><strong>📝 Ví dụ:</strong></p>
+              <ul style="padding-left: 16px; font-size: 0.78rem; color: var(--text-secondary); margin-top: 4px;">
+                <li>"Let's make some mac and cheese for dinner"</li>
+                <li>"She makes the best homemade mac and cheese"</li>
+              </ul>
+              <div style="display: flex; gap: 6px; margin-top: 12px;">
+                <span class="phone-btn primary" onclick="f2SaveVocab(this)">+ Từ vựng</span>
+                <span class="phone-btn outline" onclick="f2Feedback(this, 'Đang mở...')">Luyện tập</span>
+              </div>
+            </div>
+
+            <!-- Context tab content -->
+            <div class="phone-body popup-hidden tab-content-animated" id="f2-content-context" style="font-size: 0.8rem; line-height: 1.7;">
+              <p><strong>🗣️ Register:</strong> Casual, gia đình, thân mật</p>
+              <p style="margin-top: 8px;"><strong>Các cụm thường gặp:</strong></p>
+              <ul style="padding-left: 16px; font-size: 0.78rem; color: var(--text-secondary); margin-top: 4px;">
+                <li><strong>"homemade mac and cheese"</strong> — tự làm tại nhà (cao cấp hơn)</li>
+                <li><strong>"box mac and cheese"</strong> — loại hộp ăn liền (Kraft), dân dã</li>
+                <li><strong>"baked mac and cheese"</strong> — nướng lò, phiên bản "fancy"</li>
+              </ul>
+              <p style="margin-top: 10px;"><strong>"My mom's famous..."</strong></p>
+              <p style="font-size: 0.78rem; color: var(--text-secondary);">= đặc sản gia đình. Mỗi nhà Mỹ thường có 1 món "signature" mà mọi người biết đến. Nói "famous" ở đây mang tính tự hào.</p>
+              <div style="background: #E0F7F6; border-radius: 8px; padding: 10px; margin-top: 10px;">
+                <div style="font-weight: 700; font-size: 0.72rem; color: var(--secondary-dark);">💡 Khi nào dùng?</div>
+                <p style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 4px;">Nói về ẩm thực gia đình, rủ bạn đến ăn, kể chuyện về mẹ/bà nấu ăn. Rất phổ biến trong đời thường.</p>
+              </div>
+              <div style="display: flex; gap: 6px; margin-top: 12px;">
+                <span class="phone-btn primary" onclick="f2SaveVocab(this)">+ Từ vựng</span>
+                <span class="phone-btn outline" onclick="f2Feedback(this, 'Đang mở...')">Luyện tập</span>
+              </div>
+            </div>
+
+            <!-- Culture tab content (default shown) -->
+            <div class="phone-body tab-content-animated" id="f2-content-culture" style="font-size: 0.8rem; line-height: 1.7;">
+              <p>Mac and cheese là <strong>"comfort food"</strong> biểu tượng của Mỹ, đặc biệt trong văn hoá African American & miền Nam nước Mỹ.</p>
+
+              <p style="margin-top: 10px;"><strong>"My mom's famous..."</strong> → Gia đình Mỹ thường có 1 món "signature" mà ai cũng biết. Đây là cách thể hiện bản sắc gia đình thông qua ẩm thực.</p>
+
+              <div style="background: #FFF8E1; border-radius: 8px; padding: 10px; margin-top: 12px;">
+                <div style="font-weight: 700; font-size: 0.75rem; color: #F57F17; margin-bottom: 4px;">🔀 So sánh với văn hoá bạn</div>
+                <p style="font-size: 0.78rem; color: var(--text-secondary);">Tương tự như "bún bò mẹ nấu" trong văn hoá Việt — mỗi nhà có 1 công thức riêng, là niềm tự hào.</p>
+              </div>
+
+              <div style="margin-top: 12px;">
+                <div style="font-weight: 700; font-size: 0.75rem; margin-bottom: 6px;">Nội dung liên quan:</div>
+                <div style="font-size: 0.75rem; color: var(--primary);">
+                  📺 Atlanta S2E5 — cookout scene<br>
+                  🎵 Kendrick Lamar — "m.A.A.d city"<br>
+                  📖 "Between the World and Me"
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 6px; margin-top: 12px;">
+                <span class="phone-btn primary" onclick="f2SaveVocab(this)">+ Từ vựng</span>
+                <span class="phone-btn outline" onclick="f2Feedback(this, 'Đang mở...')">Luyện tập</span>
+                <span class="phone-btn outline" onclick="f2Feedback(this, 'Đã copy link!')">Chia sẻ</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- UX Details -->
+        <div style="flex: 1; min-width: 280px;">
+          <h4 style="margin-bottom: var(--space-md);">3 Tab chi tiết</h4>
+
+          <div class="card" style="margin-bottom: 12px; border-left: 4px solid var(--primary);">
+            <h4 style="color: var(--primary); font-size: 0.9rem;">Tab Language</h4>
+            <p style="font-size: 0.85rem; color: var(--text-secondary);">Nghĩa, phát âm (IPA + audio), grammar note, ví dụ câu. "Macaroni and cheese" → viết tắt "mac and cheese" (rất phổ biến).</p>
+          </div>
+
+          <div class="card" style="margin-bottom: 12px; border-left: 4px solid var(--secondary);">
+            <h4 style="color: var(--secondary); font-size: 0.9rem;">Tab Context</h4>
+            <p style="font-size: 0.85rem; color: var(--text-secondary);">Register (casual, gia đình). Các cụm thường gặp: "homemade mac and cheese" (tự làm), "box mac and cheese" (ăn liền, Kraft). "Mom's famous..." = đặc sản gia đình.</p>
+          </div>
+
+          <div class="card" style="margin-bottom: 12px; border-left: 4px solid var(--accent);">
+            <h4 style="color: var(--accent); font-size: 0.9rem;">Tab Culture</h4>
+            <p style="font-size: 0.85rem; color: var(--text-secondary);">Comfort food, Soul food, bản sắc gia đình qua ẩm thực. Luôn có "So sánh xuyên văn hoá" → tạo Rich Point. Link đến Culture Deep Dive.</p>
+          </div>
+
+          <div class="highlight-box teal" style="margin-top: var(--space-md);">
+            <p style="font-size: 0.85rem;"><strong>JTBD phục vụ:</strong> Tất cả 6 Jobs — đây là component dùng xuyên suốt app</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- FEATURE 3: Scene Practice Mode -->
+<!-- ============================================ -->
+<section class="section">
+  <div class="container">
+    <div class="feature-card">
+      <div class="feature-header">
+        <div class="feature-number">3</div>
+        <div>
+          <h3 style="margin: 0;">Scene Practice Mode</h3>
+          <div class="feature-meta">Biến 1 scene phim thành bài luyện tập đa kỹ năng &nbsp; <span class="tag p0">P0 — Must have</span></div>
+        </div>
+      </div>
+
+      <p style="color: var(--text-secondary); margin-bottom: var(--space-lg);">
+        Đây là "bài học" chính của app. 5 bước tuần tự, mỗi bước rèn 1 kỹ năng khác nhau — tất cả xoay quanh cùng 1 scene.
+      </p>
+
+      <div style="display: flex; gap: var(--space-xl); flex-wrap: wrap; align-items: flex-start;">
+        <!-- Phone Mockup — INTERACTIVE -->
+        <div class="phone-mockup" style="flex-shrink: 0;" id="f3-phone">
+          <div class="phone-screen">
+            <div class="phone-status-bar">
+              <span>9:41</span>
+              <span>📶 🔋</span>
+            </div>
+            <div class="phone-header">
+              🎬 Scene Practice
+            </div>
+            <div class="phone-body">
+              <div style="font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 4px;">"The Cookout Invitation" — Atlanta S2</div>
+
+              <!-- Progress -->
+              <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+                <div class="progress-bar" style="flex: 1;">
+                  <div class="fill" id="f3-progress-fill" style="width: 60%; transition: width 0.5s ease;"></div>
+                </div>
+                <span style="font-size: 0.75rem; font-weight: 600; color: var(--primary);" id="f3-step-label">Bước 3/5</span>
+              </div>
+
+              <!-- Step content area -->
+              <div id="f3-step-content">
+                <!-- Step 1: Watch -->
+                <div id="f3-step-1" class="popup-hidden">
+                  <div style="font-weight: 700; font-size: 0.85rem; margin-bottom: 10px;">👁️ Xem scene (có subtitle)</div>
+                  <div style="text-align: center; background: #1a1a2e; border-radius: 8px; padding: 24px; margin-bottom: 10px; color: white;">
+                    <div style="font-size: 2rem; cursor: pointer;" onclick="this.textContent = this.textContent === '▶️' ? '⏸️' : '▶️'">▶️</div>
+                    <div style="font-size: 0.7rem; opacity: 0.7; margin-top: 4px;">Atlanta S2E5 — The Cookout Invitation</div>
+                    <div style="background: rgba(255,255,255,0.15); border-radius: 6px; padding: 8px; margin-top: 10px; font-size: 0.78rem;">
+                      "Nah you good, just pull up. My mom's making her famous mac and cheese"
+                    </div>
+                  </div>
+                  <p style="font-size: 0.75rem; color: var(--text-secondary); text-align: center;">Xem thoải mái, không áp lực. Cảm nhận ngữ điệu và bối cảnh.</p>
+                </div>
+
+                <!-- Step 2: Explore -->
+                <div id="f3-step-2" class="popup-hidden">
+                  <div style="font-weight: 700; font-size: 0.85rem; margin-bottom: 10px;">🔍 Khám phá từ vựng</div>
+                  <div style="font-size: 0.82rem; line-height: 2; margin-bottom: 10px; padding: 10px; background: var(--primary-bg); border-radius: 8px;">
+                    "Nah <strong class="clickable-word" style="color: var(--primary);" onclick="f3ShowMiniPopup(this, 'you good = bạn ổn, không cần khách sáo')">you good</strong>, just <strong class="clickable-word" style="color: var(--primary); text-decoration: underline;" onclick="f3ShowMiniPopup(this, 'pull up = đến, ghé qua (informal)')">pull up</strong>. My mom's making her <strong class="clickable-word" style="color: var(--secondary);" onclick="f3ShowMiniPopup(this, 'famous = nổi tiếng — đặc sản gia đình')">famous</strong> <strong class="clickable-word" style="color: var(--secondary);" onclick="f3ShowMiniPopup(this, 'mac and cheese = mì ống phô mai — comfort food Mỹ')">mac and cheese</strong>"
+                  </div>
+                  <div id="f3-mini-popup" class="popup-hidden" style="background: white; border: 2px solid var(--primary); border-radius: 8px; padding: 8px 12px; font-size: 0.75rem; margin-bottom: 8px; animation: slideUp 0.2s ease;">
+                  </div>
+                  <p style="font-size: 0.75rem; color: var(--text-secondary); text-align: center;">Tap vào các từ in đậm để xem nghĩa</p>
+                </div>
+
+                <!-- Step 3: Listen & Fill (default shown) -->
+                <div id="f3-step-3">
+                  <div style="font-weight: 700; font-size: 0.85rem; margin-bottom: 10px;">🎧 Nghe & Điền từ</div>
+
+                  <div style="text-align: center; background: #f5f5f5; border-radius: 8px; padding: 12px; margin-bottom: 10px; cursor: pointer; transition: background 0.2s;" onclick="this.style.background='#e8e8f0'; setTimeout(()=>this.style.background='#f5f5f5', 300)">
+                    <span style="font-size: 1.5rem;">🔊</span>
+                    <div style="font-size: 0.7rem; color: var(--text-secondary); margin-top: 4px;">Tap để nghe lại</div>
+                  </div>
+
+                  <div style="font-size: 0.82rem; line-height: 2.2; margin-bottom: 12px;">
+                    "Nah you <input type="text" class="fill-input" style="width: 55px;" id="f3-fill-1" placeholder="___">, just <input type="text" class="fill-input" style="width: 50px;" id="f3-fill-2" placeholder="___"> <input type="text" class="fill-input" style="width: 35px;" id="f3-fill-3" placeholder="___">. My mom's making her <input type="text" class="fill-input" style="width: 65px;" id="f3-fill-4" placeholder="___"> mac and cheese"
+                  </div>
+
+                  <div style="display: flex; gap: 6px; margin-bottom: 14px;">
+                    <span class="phone-btn outline" onclick="this.style.background='#f0f0f5'; setTimeout(()=>this.style.background='transparent', 300)">🔊 Nghe lại</span>
+                    <span class="phone-btn primary" style="flex: 1; text-align: center;" onclick="f3CheckAnswers()" id="f3-check-btn">Kiểm tra đáp án</span>
+                  </div>
+                  <div id="f3-result" class="popup-hidden" style="text-align: center; font-size: 0.78rem; padding: 8px; border-radius: 8px; margin-bottom: 10px;"></div>
+                </div>
+
+                <!-- Step 4: Speak -->
+                <div id="f3-step-4" class="popup-hidden">
+                  <div style="font-weight: 700; font-size: 0.85rem; margin-bottom: 10px;">🎤 Nói — Đóng vai nhân vật</div>
+                  <div style="background: var(--primary-bg); border-radius: 8px; padding: 12px; margin-bottom: 10px; font-size: 0.78rem;">
+                    <p style="color: var(--text-secondary); margin-bottom: 6px;">AI sẽ nói:</p>
+                    <p style="font-weight: 600;">"Yo what's good, you coming to the cookout this weekend?"</p>
+                  </div>
+                  <p style="font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 10px;">Hãy trả lời như nhân vật trong phim:</p>
+                  <div style="text-align: center; margin-bottom: 10px;">
+                    <div style="width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--accent)); margin: 0 auto; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: transform 0.2s;" onclick="f3ToggleMic(this)" id="f3-mic">
+                      <span style="font-size: 1.5rem; color: white;">🎤</span>
+                    </div>
+                    <div style="font-size: 0.7rem; color: var(--text-secondary); margin-top: 6px;" id="f3-mic-label">Nhấn để thu âm</div>
+                  </div>
+                  <div id="f3-speak-feedback" class="popup-hidden" style="background: #E8F5E9; border-radius: 8px; padding: 10px; font-size: 0.75rem; color: #2E7D32;">
+                    <strong>Tốt lắm!</strong> Phát âm tự nhiên. Thử nhấn mạnh "pull up" hơn nhé!
+                  </div>
+                </div>
+
+                <!-- Step 5: Rewatch -->
+                <div id="f3-step-5" class="popup-hidden">
+                  <div style="font-weight: 700; font-size: 0.85rem; margin-bottom: 10px;">👁️ Xem lại — Không subtitle</div>
+                  <div style="text-align: center; background: #1a1a2e; border-radius: 8px; padding: 24px; margin-bottom: 10px; color: white;">
+                    <div style="font-size: 2rem; cursor: pointer;" onclick="this.textContent = this.textContent === '▶️' ? '⏸️' : '▶️'">▶️</div>
+                    <div style="font-size: 0.7rem; opacity: 0.7; margin-top: 4px;">Không subtitle — cảm nhận tiến bộ!</div>
+                  </div>
+                  <p style="font-size: 0.78rem; font-weight: 600; margin-bottom: 6px;">Bạn hiểu được bao nhiêu %?</p>
+                  <input type="range" min="0" max="100" value="75" style="width: 100%; accent-color: var(--primary);" oninput="document.getElementById('f3-rate-val').textContent = this.value + '%'" id="f3-rate-slider">
+                  <div style="text-align: center; font-size: 0.85rem; font-weight: 700; color: var(--primary); margin-top: 4px;" id="f3-rate-val">75%</div>
+                  <div class="phone-btn primary" style="display: block; text-align: center; margin-top: 10px;" onclick="this.textContent='Hoàn thành! 🎉'; this.style.background='var(--success)'">Hoàn thành bài học</div>
+                </div>
+              </div>
+
+              <!-- Steps indicator -->
+              <div style="border-top: 1px solid var(--border); padding-top: 10px; font-size: 0.72rem; color: var(--text-secondary);">
+                <div class="practice-step" onclick="f3GoToStep(1)" id="f3-indicator-1">✅ 1. Xem scene (có sub)</div>
+                <div class="practice-step" onclick="f3GoToStep(2)" id="f3-indicator-2">✅ 2. Khám phá từ vựng (tap để hiểu)</div>
+                <div class="practice-step" onclick="f3GoToStep(3)" id="f3-indicator-3" style="color: var(--primary); font-weight: 600;">→ 3. Nghe & Điền từ (đang làm)</div>
+                <div class="practice-step" onclick="f3GoToStep(4)" id="f3-indicator-4">○ 4. Nói — đóng vai nhân vật</div>
+                <div class="practice-step" onclick="f3GoToStep(5)" id="f3-indicator-5">○ 5. Xem lại — không sub</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5 Steps Detail -->
+        <div style="flex: 1; min-width: 280px;">
+          <h4 style="margin-bottom: var(--space-md);">5 bước luyện tập</h4>
+
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Bước</th>
+                  <th>Kỹ năng</th>
+                  <th>Mô tả UX</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>1. Watch</strong></td>
+                  <td><span class="tag primary">Nghe + Đọc</span></td>
+                  <td>Xem scene với subtitle ngôn ngữ đích. Thoải mái, không áp lực</td>
+                </tr>
+                <tr>
+                  <td><strong>2. Explore</strong></td>
+                  <td><span class="tag teal">Từ vựng + Văn hoá</span></td>
+                  <td>Transcript hiện ra, tap vào từ → 3-Layer Explorer. AI highlight từ nên học</td>
+                </tr>
+                <tr>
+                  <td><strong>3. Listen & Fill</strong></td>
+                  <td><span class="tag primary">Nghe</span></td>
+                  <td>Nghe lại KHÔNG sub, điền từ bị ẩn. Có thể nghe lại, nghe chậm</td>
+                </tr>
+                <tr>
+                  <td><strong>4. Speak</strong></td>
+                  <td><span class="tag pink">Nói</span></td>
+                  <td>AI phát từng câu → user lặp lại hoặc đóng vai nhân vật. AI chấm phát âm + tự nhiên</td>
+                </tr>
+                <tr>
+                  <td><strong>5. Rewatch</strong></td>
+                  <td><span class="tag green">Tổng hợp</span></td>
+                  <td>Xem lại toàn bộ scene không sub. Cảm nhận tiến bộ. Self-rate: hiểu bao nhiêu %?</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="highlight-box purple" style="margin-top: var(--space-md);">
+            <p style="font-size: 0.85rem;"><strong>JTBD phục vụ:</strong> J1 (Xem phim không sub), J4 (Giao tiếp tự nhiên)</p>
+          </div>
+
+          <div class="highlight-box teal" style="margin-top: var(--space-sm);">
+            <p style="font-size: 0.85rem;"><strong>Progression:</strong> Level thấp → ẩn ít từ, nghe chậm, có gợi ý. Level cao → ẩn nhiều, tốc độ gốc, accent đa dạng, slang nặng hơn.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- FEATURE 4: Culture Deep Dive Cards -->
+<!-- ============================================ -->
+<section class="section" style="background: var(--primary-bg);">
+  <div class="container">
+    <div class="feature-card" style="background: white;">
+      <div class="feature-header">
+        <div class="feature-number">4</div>
+        <div>
+          <h3 style="margin: 0;">Culture Deep Dive Cards</h3>
+          <div class="feature-meta">Mở rộng từ 1 từ/cụm từ → bài học ngắn về way of living &nbsp; <span class="tag p1">P1 — Should have</span></div>
+        </div>
+      </div>
+
+      <p style="color: var(--text-secondary); margin-bottom: var(--space-lg);">
+        Khi gặp từ có chiều sâu văn hoá → gợi ý "Tìm hiểu thêm" → mở Deep Dive card. Mỗi card 2-3 phút đọc, có hình minh hoạ, luôn có phần "So sánh với văn hoá bạn".
+      </p>
+
+      <div style="display: flex; gap: var(--space-xl); flex-wrap: wrap; align-items: flex-start;">
+        <!-- Phone Mockup — INTERACTIVE -->
+        <div class="phone-mockup" style="flex-shrink: 0;" id="f4-phone">
+          <div class="phone-screen">
+            <div class="phone-status-bar">
+              <span>9:41</span>
+              <span>📶 🔋</span>
+            </div>
+            <div class="phone-header">
+              🌍 Culture Deep Dive
+            </div>
+            <div class="phone-body phone-body-scroll" style="font-size: 0.8rem; line-height: 1.7;">
+              <!-- Image placeholder -->
+              <div style="background: linear-gradient(135deg, #FF6B6B, #FFA06B); border-radius: 10px; padding: 24px; text-align: center; color: white; margin-bottom: 12px;">
+                <div style="font-size: 1.8rem;">🍖🌽🥤</div>
+                <div style="font-weight: 700; margin-top: 4px;">The Cookout</div>
+              </div>
+
+              <h4 style="font-size: 0.9rem; margin-bottom: 6px;">"The Cookout" — Nhiều hơn một bữa BBQ</h4>
+
+              <p style="font-size: 0.78rem; color: var(--text-secondary);">Trong văn hoá African American, "cookout" không chỉ là nướng thịt ngoài trời. Đó là nơi cả cộng đồng gắn kết — hàng xóm, bạn bè, gia đình mở rộng.</p>
+
+              <!-- Expandable rules section -->
+              <div style="margin-top: 10px; font-size: 0.78rem;">
+                <div style="cursor: pointer; display: flex; align-items: center; gap: 6px;" onclick="f4ToggleRules()">
+                  <strong>Quy tắc ngầm:</strong>
+                  <span id="f4-rules-arrow" style="transition: transform 0.3s; font-size: 0.7rem;">▼</span>
+                </div>
+                <ul id="f4-rules-list" style="padding-left: 16px; color: var(--text-secondary); margin-top: 4px; transition: all 0.3s ease;">
+                  <li>"pull up" = bạn được mời thật sự</li>
+                  <li>Mang theo 1 món ăn = phép lịch sự</li>
+                  <li>"You good" = thân đến mức không cần khách sáo</li>
+                  <li>Không ai về sớm — ở đến tối là bình thường</li>
+                </ul>
+              </div>
+
+              <!-- Expandable Do's/Don'ts -->
+              <div style="margin-top: 10px; font-size: 0.78rem;">
+                <div style="cursor: pointer; display: flex; align-items: center; gap: 6px;" onclick="f4ToggleDos()">
+                  <strong>Do's & Don'ts:</strong>
+                  <span id="f4-dos-arrow" style="transition: transform 0.3s; font-size: 0.7rem;">▶</span>
+                </div>
+                <div id="f4-dos-list" class="popup-hidden" style="margin-top: 4px; transition: all 0.3s ease;">
+                  <div style="background: #E8F5E9; border-radius: 6px; padding: 6px 8px; margin-bottom: 4px; font-size: 0.72rem;">✅ Đến đúng giờ hoặc muộn 15-30 phút</div>
+                  <div style="background: #E8F5E9; border-radius: 6px; padding: 6px 8px; margin-bottom: 4px; font-size: 0.72rem;">✅ Nói "This is fire!" khi khen đồ ăn</div>
+                  <div style="background: #FFEBEE; border-radius: 6px; padding: 6px 8px; margin-bottom: 4px; font-size: 0.72rem;">❌ Đừng mang đồ ăn từ cửa hàng (tự nấu)</div>
+                  <div style="background: #FFEBEE; border-radius: 6px; padding: 6px 8px; font-size: 0.72rem;">❌ Đừng về sớm — ở đến tối!</div>
+                </div>
+              </div>
+
+              <div style="background: #FFF8E1; border-radius: 8px; padding: 10px; margin-top: 10px;">
+                <div style="font-weight: 700; font-size: 0.72rem; color: #F57F17;">🔀 So sánh với văn hoá bạn</div>
+                <p style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 4px;">Ở Việt Nam, tương tự nhất là đám giỗ hoặc tiệc tất niên — cũng là dịp gia đình mở rộng, hàng xóm tụ họp, mỗi nhà mang 1 món.</p>
+              </div>
+
+              <div style="display: flex; gap: 6px; margin-top: 12px;">
+                <span class="phone-btn primary" id="f4-understood-btn" onclick="f4Understood(this)">Đã hiểu ✓</span>
+                <span class="phone-btn outline" id="f4-save-btn" onclick="f4Save(this)">Lưu lại</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- UX Details -->
+        <div style="flex: 1; min-width: 280px;">
+          <h4 style="margin-bottom: var(--space-md);">Cấu trúc 1 Culture Card</h4>
+
+          <div class="flow-vertical">
+            <div class="flow-v-step">
+              <div class="flow-v-line">
+                <div class="flow-v-dot">1</div>
+                <div class="flow-v-connector"></div>
+              </div>
+              <div class="flow-v-content">
+                <h4>Hình ảnh minh hoạ</h4>
+                <p>Visual hấp dẫn, tạo bối cảnh ngay lập tức</p>
+              </div>
+            </div>
+
+            <div class="flow-v-step">
+              <div class="flow-v-line">
+                <div class="flow-v-dot">2</div>
+                <div class="flow-v-connector"></div>
+              </div>
+              <div class="flow-v-content">
+                <h4>Giải thích văn hoá</h4>
+                <p>2-3 đoạn ngắn, viết dễ hiểu, tập trung vào "way of living" hơn là sự kiện/số liệu</p>
+              </div>
+            </div>
+
+            <div class="flow-v-step">
+              <div class="flow-v-line">
+                <div class="flow-v-dot">3</div>
+                <div class="flow-v-connector"></div>
+              </div>
+              <div class="flow-v-content">
+                <h4>Quy tắc ngầm & Do's/Don'ts</h4>
+                <p>Thực tế, áp dụng được ngay — "nếu bạn được mời cookout, hãy..."</p>
+              </div>
+            </div>
+
+            <div class="flow-v-step">
+              <div class="flow-v-line">
+                <div class="flow-v-dot">4</div>
+                <div class="flow-v-connector"></div>
+              </div>
+              <div class="flow-v-content">
+                <h4>So sánh xuyên văn hoá</h4>
+                <p>Luôn liên hệ với văn hoá gốc của người học → tạo "Rich Point"</p>
+              </div>
+            </div>
+
+            <div class="flow-v-step">
+              <div class="flow-v-line">
+                <div class="flow-v-dot">5</div>
+              </div>
+              <div class="flow-v-content">
+                <h4>Nội dung liên quan</h4>
+                <p>Link tới phim, nhạc, sách cùng chủ đề → tạo learning loop</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="highlight-box pink" style="margin-top: var(--space-sm);">
+            <p style="font-size: 0.85rem;"><strong>JTBD phục vụ:</strong> J5 (Hiểu văn hoá để sống/làm việc). Cards được lưu vào "Cultural Passport" của user.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Pagination -->
+<div class="container">
+  <div class="pagination">
+    <a href="learning.html">
+      <span>←</span>
+      <div>
+        <div class="page-label">Trang trước</div>
+        <strong>Thiết kế học tập</strong>
+      </div>
+    </a>
+    <a href="features-2.html">
+      <div style="text-align: right;">
+        <div class="page-label">Trang tiếp</div>
+        <strong>Tính năng 5-8</strong>
+      </div>
+      <span>→</span>
+    </a>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer style="text-align: center; padding: var(--space-xl) 0; color: var(--text-light); font-size: 0.85rem;">
+  CultureLingo — Internal Product Demo — v0.2
+</footer>
+
+<script>
+/* ============================================
+   FEATURE 1: Smart Transcript Player
+   ============================================ */
+const f1PopupData = {
+  pullup: {
+    title: '"pull up"',
+    body: `<p><strong>🔤 Nghĩa:</strong> đến, ghé qua (informal)</p>
+           <p style="color: var(--text-secondary); font-size: 0.75rem;">Không phải "kéo lên" (nghĩa gốc)</p>
+           <p style="margin-top: 4px;"><strong>🗣️ Ngữ cảnh:</strong> Chỉ dùng với bạn thân, casual</p>
+           <p style="margin-top: 4px;"><strong>🌍 Văn hoá:</strong> <a href="#" style="font-size: 0.75rem;">Tìm hiểu về Cookout culture →</a></p>`
+  },
+  cookout: {
+    title: '"cookout"',
+    body: `<p><strong>🔤 Nghĩa:</strong> tiệc nướng ngoài trời (BBQ party)</p>
+           <p style="color: var(--text-secondary); font-size: 0.75rem;">Không chỉ là nấu ăn — là sự kiện cộng đồng</p>
+           <p style="margin-top: 4px;"><strong>🗣️ Ngữ cảnh:</strong> Casual, thường vào cuối tuần / dịp lễ</p>
+           <p style="margin-top: 4px;"><strong>🌍 Văn hoá:</strong> <a href="#" style="font-size: 0.75rem;">Cookout = trung tâm gắn kết cộng đồng →</a></p>`
+  },
+  yougood: {
+    title: '"you good"',
+    body: `<p><strong>🔤 Nghĩa:</strong> bạn ổn / không cần lo (informal)</p>
+           <p style="color: var(--text-secondary); font-size: 0.75rem;">Không phải hỏi "bạn có khỏe không?" — mà là "không cần khách sáo"</p>
+           <p style="margin-top: 4px;"><strong>🗣️ Ngữ cảnh:</strong> Giữa bạn thân, rất casual, thể hiện sự thoải mái</p>
+           <p style="margin-top: 4px;"><strong>🌍 Văn hoá:</strong> <a href="#" style="font-size: 0.75rem;">In-group language trong văn hoá Mỹ →</a></p>`
+  },
+  macandcheese: {
+    title: '"mac and cheese"',
+    body: `<p><strong>🔤 Nghĩa:</strong> macaroni and cheese — mì ống trộn phô mai</p>
+           <p style="color: var(--text-secondary); font-size: 0.75rem;">Comfort food kinh điển, đặc biệt trong văn hoá miền Nam</p>
+           <p style="margin-top: 4px;"><strong>🗣️ Ngữ cảnh:</strong> Ẩm thực gia đình, "My mom's famous..." = đặc sản nhà</p>
+           <p style="margin-top: 4px;"><strong>🌍 Văn hoá:</strong> <a href="#" style="font-size: 0.75rem;">Soul food & bản sắc ẩm thực Mỹ →</a></p>`
+  }
+};
+
+let f1CurrentPopup = 'pullup';
+let f1IsPlaying = false;
+let f1SpeedIndex = 1;
+const f1Speeds = ['0.5x', '0.75x', '1x', '1.25x'];
+const f1SpeedIcons = ['🐌', '🐢', '▶️', '🐇'];
+const f1Times = ['00:32', '00:35', '00:38'];
+let f1LoopOn = false;
+
+function f1ShowPopup(word) {
+  const popup = document.getElementById('f1-popup');
+  const data = f1PopupData[word];
+  if (!data) return;
+
+  if (f1CurrentPopup === word && !popup.classList.contains('popup-hidden')) {
+    popup.classList.add('popup-hidden');
+    return;
+  }
+
+  f1CurrentPopup = word;
+  document.getElementById('f1-popup-title').textContent = data.title;
+  document.getElementById('f1-popup-body').innerHTML = data.body;
+  popup.classList.remove('popup-hidden');
+  popup.classList.remove('popup-animated');
+  void popup.offsetWidth;
+  popup.classList.add('popup-animated');
+}
+
+function f1TogglePlay() {
+  f1IsPlaying = !f1IsPlaying;
+  const icon = f1IsPlaying ? '⏸️' : '▶️';
+  document.getElementById('f1-play-icon').textContent = icon;
+  document.getElementById('f1-play-small').textContent = icon;
+}
+
+function f1CycleSpeed() {
+  f1SpeedIndex = (f1SpeedIndex + 1) % f1Speeds.length;
+  document.getElementById('f1-speed').textContent = f1SpeedIcons[f1SpeedIndex] + ' ' + f1Speeds[f1SpeedIndex];
+}
+
+function f1ToggleLoop() {
+  f1LoopOn = !f1LoopOn;
+  document.getElementById('f1-loop').style.opacity = f1LoopOn ? '1' : '0.5';
+  document.getElementById('f1-loop').style.background = f1LoopOn ? 'rgba(255,255,255,0.2)' : 'transparent';
+}
+
+function f1SelectLine(index) {
+  for (let i = 0; i < 3; i++) {
+    const line = document.getElementById('f1-line-' + i);
+    line.classList.remove('active', 'pulsing');
+  }
+  const selected = document.getElementById('f1-line-' + index);
+  selected.classList.add('active', 'pulsing');
+  document.getElementById('f1-current-time').textContent = f1Times[index];
+}
+
+function f1SeekBack() {
+  const lines = document.querySelectorAll('#f1-tab-transcript .phone-transcript-line');
+  let activeIdx = 0;
+  lines.forEach((l, i) => { if (l.classList.contains('active')) activeIdx = i; });
+  f1SelectLine(Math.max(0, activeIdx - 1));
+}
+
+function f1SeekForward() {
+  const lines = document.querySelectorAll('#f1-tab-transcript .phone-transcript-line');
+  let activeIdx = 0;
+  lines.forEach((l, i) => { if (l.classList.contains('active')) activeIdx = i; });
+  f1SelectLine(Math.min(2, activeIdx + 1));
+}
+
+function f1SwitchTab(tab) {
+  ['transcript', 'vocab', 'culture'].forEach(t => {
+    document.getElementById('f1-tab-' + t).classList.add('popup-hidden');
+    document.getElementById('f1-btab-' + t).classList.remove('active');
+  });
+  const el = document.getElementById('f1-tab-' + tab);
+  el.classList.remove('popup-hidden');
+  el.classList.add('tab-content-animated');
+  document.getElementById('f1-btab-' + tab).classList.add('active');
+}
+
+function f1SaveVocab(btn) {
+  btn.textContent = 'Đã lưu ✓';
+  btn.classList.add('saved');
+  setTimeout(() => {
+    btn.textContent = '+ Từ vựng';
+    btn.classList.remove('saved');
+  }, 2000);
+}
+
+function f1Practice() {
+  // Scroll to F3 mockup
+  document.getElementById('f3-phone').scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+// Initialize: show transcript tab
+f1SwitchTab('transcript');
+
+
+/* ============================================
+   FEATURE 2: 3-Layer Word Explorer
+   ============================================ */
+function f2SwitchTab(tab) {
+  ['language', 'context', 'culture'].forEach(t => {
+    document.getElementById('f2-content-' + t).classList.add('popup-hidden');
+    document.getElementById('f2-tab-' + t).classList.remove('active');
+  });
+  const el = document.getElementById('f2-content-' + tab);
+  el.classList.remove('popup-hidden');
+  el.classList.remove('tab-content-animated');
+  void el.offsetWidth;
+  el.classList.add('tab-content-animated');
+  document.getElementById('f2-tab-' + tab).classList.add('active');
+}
+
+function f2PlayAudio() {
+  const speaker = document.getElementById('f2-speaker');
+  speaker.style.transform = 'scale(1.3)';
+  setTimeout(() => { speaker.style.transform = 'scale(1)'; }, 300);
+}
+
+function f2SaveVocab(btn) {
+  btn.textContent = 'Đã lưu ✓';
+  btn.classList.add('saved');
+  setTimeout(() => {
+    btn.textContent = '+ Từ vựng';
+    btn.classList.remove('saved');
+  }, 2000);
+}
+
+function f2Feedback(btn, msg) {
+  const orig = btn.textContent;
+  btn.textContent = msg;
+  btn.style.color = 'var(--primary)';
+  setTimeout(() => {
+    btn.textContent = orig;
+    btn.style.color = '';
+  }, 1500);
+}
+
+
+/* ============================================
+   FEATURE 3: Scene Practice Mode
+   ============================================ */
+let f3CurrentStep = 3;
+const f3Answers = { 'f3-fill-1': 'good', 'f3-fill-2': 'pull', 'f3-fill-3': 'up', 'f3-fill-4': 'famous' };
+
+function f3GoToStep(step) {
+  f3CurrentStep = step;
+  // Hide all steps
+  for (let i = 1; i <= 5; i++) {
+    document.getElementById('f3-step-' + i).classList.add('popup-hidden');
+  }
+  // Show current
+  const current = document.getElementById('f3-step-' + step);
+  current.classList.remove('popup-hidden');
+  current.classList.remove('tab-content-animated');
+  void current.offsetWidth;
+  current.classList.add('tab-content-animated');
+
+  // Update progress bar
+  document.getElementById('f3-progress-fill').style.width = (step * 20) + '%';
+  document.getElementById('f3-step-label').textContent = 'Bước ' + step + '/5';
+
+  // Update indicators
+  for (let i = 1; i <= 5; i++) {
+    const ind = document.getElementById('f3-indicator-' + i);
+    const names = ['Xem scene (có sub)', 'Khám phá từ vựng (tap để hiểu)', 'Nghe & Điền từ', 'Nói — đóng vai nhân vật', 'Xem lại — không sub'];
+    if (i < step) {
+      ind.textContent = '✅ ' + i + '. ' + names[i-1];
+      ind.style.color = 'var(--text-secondary)';
+      ind.style.fontWeight = '400';
+    } else if (i === step) {
+      ind.textContent = '→ ' + i + '. ' + names[i-1] + ' (đang làm)';
+      ind.style.color = 'var(--primary)';
+      ind.style.fontWeight = '600';
+    } else {
+      ind.textContent = '○ ' + i + '. ' + names[i-1];
+      ind.style.color = 'var(--text-secondary)';
+      ind.style.fontWeight = '400';
+    }
+  }
+}
+
+function f3CheckAnswers() {
+  let correct = 0;
+  let total = Object.keys(f3Answers).length;
+
+  Object.entries(f3Answers).forEach(([id, answer]) => {
+    const input = document.getElementById(id);
+    const val = input.value.trim().toLowerCase();
+    if (val === answer.toLowerCase()) {
+      input.classList.remove('incorrect');
+      input.classList.add('correct');
+      correct++;
+    } else {
+      input.classList.remove('correct');
+      input.classList.add('incorrect');
+      // Show correct answer after brief delay
+      setTimeout(() => { input.value = answer; input.classList.remove('incorrect'); input.classList.add('correct'); }, 1200);
+    }
+  });
+
+  const result = document.getElementById('f3-result');
+  result.classList.remove('popup-hidden');
+  if (correct === total) {
+    result.style.background = '#E8F5E9';
+    result.style.color = '#2E7D32';
+    result.innerHTML = '<strong>Xuất sắc!</strong> ' + correct + '/' + total + ' đúng! 🎉';
+  } else {
+    result.style.background = '#FFF3E0';
+    result.style.color = '#E65100';
+    result.innerHTML = correct + '/' + total + ' đúng — xem lại đáp án đúng nhé!';
+  }
+}
+
+function f3ShowMiniPopup(el, text) {
+  const popup = document.getElementById('f3-mini-popup');
+  popup.innerHTML = '💡 ' + text;
+  popup.classList.remove('popup-hidden');
+  popup.classList.remove('popup-animated');
+  void popup.offsetWidth;
+  popup.classList.add('popup-animated');
+}
+
+let f3MicRecording = false;
+function f3ToggleMic(el) {
+  f3MicRecording = !f3MicRecording;
+  if (f3MicRecording) {
+    el.style.transform = 'scale(1.15)';
+    el.style.boxShadow = '0 0 0 8px rgba(108, 92, 231, 0.2)';
+    document.getElementById('f3-mic-label').textContent = 'Đang ghi... Nhấn để dừng';
+    document.getElementById('f3-mic-label').style.color = 'var(--danger)';
+  } else {
+    el.style.transform = 'scale(1)';
+    el.style.boxShadow = 'none';
+    document.getElementById('f3-mic-label').textContent = 'Nhấn để thu âm';
+    document.getElementById('f3-mic-label').style.color = '';
+    // Show feedback
+    setTimeout(() => {
+      document.getElementById('f3-speak-feedback').classList.remove('popup-hidden');
+      document.getElementById('f3-speak-feedback').classList.add('popup-animated');
+    }, 800);
+  }
+}
+
+
+/* ============================================
+   FEATURE 4: Culture Deep Dive Cards
+   ============================================ */
+let f4RulesOpen = true;
+let f4DosOpen = false;
+
+function f4ToggleRules() {
+  f4RulesOpen = !f4RulesOpen;
+  const list = document.getElementById('f4-rules-list');
+  const arrow = document.getElementById('f4-rules-arrow');
+  if (f4RulesOpen) {
+    list.style.display = 'block';
+    arrow.textContent = '▼';
+  } else {
+    list.style.display = 'none';
+    arrow.textContent = '▶';
+  }
+}
+
+function f4ToggleDos() {
+  f4DosOpen = !f4DosOpen;
+  const list = document.getElementById('f4-dos-list');
+  const arrow = document.getElementById('f4-dos-arrow');
+  if (f4DosOpen) {
+    list.classList.remove('popup-hidden');
+    list.classList.add('popup-animated');
+    arrow.textContent = '▼';
+  } else {
+    list.classList.add('popup-hidden');
+    arrow.textContent = '▶';
+  }
+}
+
+function f4Understood(btn) {
+  btn.textContent = '✓ Đã hoàn thành';
+  btn.style.background = 'var(--success)';
+  btn.style.pointerEvents = 'none';
+}
+
+function f4Save(btn) {
+  btn.textContent = 'Đã lưu 🌍';
+  btn.classList.add('saved');
+  setTimeout(() => {
+    btn.textContent = 'Lưu lại';
+    btn.classList.remove('saved');
+  }, 2000);
+}
+</script>
+
+</body>
+</html>

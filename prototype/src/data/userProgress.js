@@ -1,0 +1,48 @@
+export const userProgress = {
+  name: "Minh",
+  streak: 7,
+  xp: 1250,
+  level: "B1",
+  wordsLearned: 142,
+  culturesDiscovered: 5,
+  culturalStamps: [
+    { id: "food-culture", name: "Ẩm thực Mỹ", progress: 75, icon: "🍔" },
+    { id: "greeting", name: "Cách chào hỏi", progress: 100, icon: "👋" },
+    { id: "hip-hop", name: "Hip-hop & Nhạc", progress: 30, icon: "🎵" },
+    { id: "workplace", name: "Văn hóa công sở", progress: 45, icon: "💼" },
+    { id: "humor", name: "Humor & Sarcasm", progress: 20, icon: "😂" },
+    { id: "sports", name: "Thể thao Mỹ", progress: 10, icon: "🏈" },
+    { id: "holidays", name: "Ngày lễ & Truyền thống", progress: 55, icon: "🎄" },
+    { id: "slang", name: "Slang đời thường", progress: 60, icon: "🗣️" },
+  ],
+  skills: {
+    listening: { level: "B1", progress: 65 },
+    speaking: { level: "A2", progress: 40 },
+    reading: { level: "B2", progress: 80 },
+    culture: { level: "B1", progress: 55 },
+  },
+  weeklyStats: {
+    minutesLearned: 85,
+    wordsAdded: 23,
+    practiceCompleted: 5,
+    cultureLessons: 3,
+  },
+  continueItems: [
+    {
+      contentId: "atlanta-s2e5",
+      title: "Atlanta S2E5 — Barbershop Scene",
+      type: "movie",
+      progress: 40,
+      lastStep: "explore",
+      thumbnail: null,
+    },
+    {
+      contentId: "ted-chimamanda",
+      title: "The Danger of a Single Story",
+      type: "podcast",
+      progress: 65,
+      lastStep: "watch",
+      thumbnail: null,
+    },
+  ],
+};

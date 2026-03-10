@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CultureLingo — Product Demo</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="nav">
+  <div class="container">
+    <div class="nav-logo">Culture<span>Lingo</span></div>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Tổng quan</a></li>
+      <li><a href="input.html">Dữ liệu đầu vào</a></li>
+      <li><a href="learning.html">Thiết kế học tập</a></li>
+      <li><a href="features-1.html">Tính năng 1-4</a></li>
+      <li><a href="features-2.html">Tính năng 5-8</a></li>
+      <li><a href="flow.html">Luồng trải nghiệm</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-badge">Product Demo v0.2 — Thảo luận nội bộ</div>
+    <h1><span class="gradient-text">CultureLingo</span></h1>
+    <p>Học ngôn ngữ thông qua văn hoá — Hiểu phim, sách, nhạc, lối sống của người bản xứ, không chỉ dịch từ.</p>
+    <p style="font-size: 1rem; color: var(--text-secondary); max-width: 700px; margin: 0 auto;">
+      Khác biệt cốt lõi: Mỗi từ/cụm từ được hiểu ở <strong>3 tầng</strong> — Language (ngôn ngữ) → Context (ngữ cảnh sử dụng) → Culture (văn hoá & way of living). Người học không chỉ biết nghĩa, mà hiểu <strong>vì sao</strong> người bản xứ nói/viết như vậy.
+    </p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="number">6</div>
+        <div class="label">Jobs To Be Done</div>
+      </div>
+      <div class="hero-stat">
+        <div class="number">8</div>
+        <div class="label">Key Features</div>
+      </div>
+      <div class="hero-stat">
+        <div class="number">3</div>
+        <div class="label">Tầng hiểu biết</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JTBD Section -->
+<section class="section">
+  <div class="container">
+    <div class="section-label">Jobs To Be Done</div>
+    <h2>Người học muốn <span class="gradient-text">làm được gì?</span></h2>
+    <p style="color: var(--text-secondary); margin-bottom: var(--space-xl); max-width: 650px;">
+      Người học không "học ngôn ngữ" — họ muốn <strong>làm được một điều gì đó</strong> bằng ngôn ngữ đích. Mỗi JTBD quyết định input, cách học, và features.
+    </p>
+
+    <div class="card-grid">
+      <!-- J1 -->
+      <div class="card">
+        <div class="card-icon purple">🎬</div>
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+          <span class="tag primary">J1</span>
+          <h3 style="margin: 0;">Xem phim không sub</h3>
+        </div>
+        <p>Xem Netflix, YouTube, K-drama... hiểu 90%+ mà không cần subtitle tiếng Việt.</p>
+        <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border);">
+          <strong style="font-size: 0.8rem; color: var(--success);">Đo lường:</strong>
+          <span style="font-size: 0.8rem; color: var(--text-secondary);">Tự tin tắt sub, hiểu cả slang, humor, cultural reference</span>
+        </div>
+      </div>
+
+      <!-- J2 -->
+      <div class="card">
+        <div class="card-icon teal">📖</div>
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+          <span class="tag teal">J2</span>
+          <h3 style="margin: 0;">Đọc sách gốc</h3>
+        </div>
+        <p>Đọc novel, manga, webtoon, blog bằng ngôn ngữ gốc — hiểu cả nuance.</p>
+        <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border);">
+          <strong style="font-size: 0.8rem; color: var(--success);">Đo lường:</strong>
+          <span style="font-size: 0.8rem; color: var(--text-secondary);">Đọc hết 1 cuốn sách/series mà không cần dịch liên tục</span>
+        </div>
+      </div>
+
+      <!-- J3 -->
+      <div class="card">
+        <div class="card-icon pink">🎵</div>
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+          <span class="tag pink">J3</span>
+          <h3 style="margin: 0;">Nghe nhạc hiểu lời</h3>
+        </div>
+        <p>Hiểu lyrics bài hát yêu thích — cả nghĩa đen, nghĩa bóng, và bối cảnh văn hoá.</p>
+        <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border);">
+          <strong style="font-size: 0.8rem; color: var(--success);">Đo lường:</strong>
+          <span style="font-size: 0.8rem; color: var(--text-secondary);">Nghe bài mới, hiểu ý chính mà không cần tra</span>
+        </div>
+      </div>
+
+      <!-- J4 -->
+      <div class="card">
+        <div class="card-icon yellow">💬</div>
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+          <span class="tag yellow">J4</span>
+          <h3 style="margin: 0;">Giao tiếp tự nhiên</h3>
+        </div>
+        <p>Nói chuyện, chat mà không "nghe như sách giáo khoa" — dùng đúng slang, register, tone.</p>
+        <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border);">
+          <strong style="font-size: 0.8rem; color: var(--success);">Đo lường:</strong>
+          <span style="font-size: 0.8rem; color: var(--text-secondary);">Người bản xứ thoải mái nói chuyện, không phải "dumb down"</span>
+        </div>
+      </div>
+
+      <!-- J5 -->
+      <div class="card">
+        <div class="card-icon green">🌍</div>
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+          <span class="tag green">J5</span>
+          <h3 style="margin: 0;">Hiểu văn hoá để sống/làm việc</h3>
+        </div>
+        <p>Hiểu way of living, social norms, workplace culture để không bị "lạc lõng".</p>
+        <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border);">
+          <strong style="font-size: 0.8rem; color: var(--success);">Đo lường:</strong>
+          <span style="font-size: 0.8rem; color: var(--text-secondary);">Navigate được tình huống xã hội phức tạp (mỉa mai, lịch sự, taboo...)</span>
+        </div>
+      </div>
+
+      <!-- J6 -->
+      <div class="card">
+        <div class="card-icon blue">🎙</div>
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+          <span class="tag primary">J6</span>
+          <h3 style="margin: 0;">Nghe podcast/tin tức</h3>
+        </div>
+        <p>Theo dõi podcast, news bằng ngôn ngữ đích về chủ đề quan tâm.</p>
+        <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border);">
+          <strong style="font-size: 0.8rem; color: var(--success);">Đo lường:</strong>
+          <span style="font-size: 0.8rem; color: var(--text-secondary);">Nghe 1 episode 30 phút, nắm được 80%+ nội dung</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Quick Overview: Product Logic -->
+<section class="section">
+  <div class="container">
+    <div class="section-label">Product Logic</div>
+    <h2>Tư duy sản phẩm: <span class="gradient-text">JTBD → Input → Learning → Features</span></h2>
+
+    <div class="flow-pipeline">
+      <div class="flow-step active">JTBD<br><small style="opacity:0.8">Họ muốn làm gì?</small></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">Input<br><small>Nguồn dữ liệu nào?</small></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">Learning Design<br><small>Học như thế nào?</small></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">Key Features<br><small>Cần tính năng gì?</small></div>
+    </div>
+
+    <div class="highlight-box purple">
+      <h4 style="margin-bottom: 8px;">Ví dụ minh hoạ:</h4>
+      <p style="font-size: 0.95rem;">
+        <strong>JTBD:</strong> "Tôi muốn xem phim Mỹ không sub"
+        → <strong>Input:</strong> Netflix subtitle + audio
+        → <strong>Learning:</strong> Nghe scene, hiểu slang ("pull up" = đến, ghé qua), hiểu văn hoá (cookout = BBQ cộng đồng African American)
+        → <strong>Features:</strong> Smart Transcript Player + 3-Layer Word Explorer + Scene Practice
+      </p>
+    </div>
+
+    <!-- 3 Layer Preview -->
+    <h3 style="margin-top: var(--space-xl);">Mô hình 3-Layer Understanding — Điểm khác biệt cốt lõi</h3>
+    <p style="color: var(--text-secondary); margin-bottom: var(--space-lg);">Mỗi từ/cụm từ không chỉ được dịch — mà được HIỂU ở 3 tầng:</p>
+
+    <div class="layer-stack">
+      <div class="layer language">
+        <h4>Layer 1: Language (Ngôn ngữ)</h4>
+        <ul>
+          <li>Vocabulary, Grammar, Pronunciation</li>
+          <li>"pull up" = đến, ghé qua (informal). Không phải "kéo lên"</li>
+        </ul>
+      </div>
+      <div class="layer context">
+        <h4>Layer 2: Context (Ngữ cảnh sử dụng)</h4>
+        <ul>
+          <li>Register: formal vs informal, khi nào dùng được, khi nào không</li>
+          <li>"pull up" chỉ dùng với bạn bè. Lịch sự hơn: "come over", formal: "please join us"</li>
+        </ul>
+      </div>
+      <div class="layer culture">
+        <h4>Layer 3: Culture (Văn hoá & Way of Living)</h4>
+        <ul>
+          <li>Cookout = không chỉ BBQ, mà là nơi cộng đồng gắn kết</li>
+          <li>Tương đương VN: đám giỗ, tiệc tất niên — mỗi nhà mang 1 món</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Navigation Summary -->
+<section class="section" style="background: var(--primary-bg);">
+  <div class="container" style="text-align: center;">
+    <h2>Khám phá chi tiết</h2>
+    <p style="color: var(--text-secondary); margin-bottom: var(--space-xl);">Chọn một phần để tìm hiểu sâu hơn</p>
+
+    <div class="card-grid-3">
+      <a href="input.html" class="card" style="text-align: center; text-decoration: none; color: inherit;">
+        <div style="font-size: 2rem; margin-bottom: 8px;">📥</div>
+        <h3 style="color: var(--primary);">Dữ liệu đầu vào</h3>
+        <p>JTBD → Nguồn dữ liệu & Pipeline xử lý</p>
+      </a>
+      <a href="learning.html" class="card" style="text-align: center; text-decoration: none; color: inherit;">
+        <div style="font-size: 2rem; margin-bottom: 8px;">🧠</div>
+        <h3 style="color: var(--primary);">Thiết kế học tập</h3>
+        <p>Mô hình 3 tầng & cách học theo từng JTBD</p>
+      </a>
+      <a href="features-1.html" class="card" style="text-align: center; text-decoration: none; color: inherit;">
+        <div style="font-size: 2rem; margin-bottom: 8px;">✨</div>
+        <h3 style="color: var(--primary);">Tính năng 1-4</h3>
+        <p>Transcript Player, Word Explorer, Scene Practice, Culture Cards</p>
+      </a>
+      <a href="features-2.html" class="card" style="text-align: center; text-decoration: none; color: inherit;">
+        <div style="font-size: 2rem; margin-bottom: 8px;">🚀</div>
+        <h3 style="color: var(--primary);">Tính năng 5-8</h3>
+        <p>AI Conversation, Lyrics Lab, Passport, Library</p>
+      </a>
+      <a href="flow.html" class="card" style="text-align: center; text-decoration: none; color: inherit;">
+        <div style="font-size: 2rem; margin-bottom: 8px;">🗺️</div>
+        <h3 style="color: var(--primary);">Luồng trải nghiệm</h3>
+        <p>Toàn cảnh trải nghiệm & độ ưu tiên</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer style="text-align: center; padding: var(--space-xl) 0; color: var(--text-light); font-size: 0.85rem;">
+  CultureLingo — Internal Product Demo — v0.2
+</footer>
+
+</body>
+</html>

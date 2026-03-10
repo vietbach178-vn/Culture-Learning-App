@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dữ liệu đầu vào — CultureLingo</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="nav">
+  <div class="container">
+    <div class="nav-logo">Culture<span>Lingo</span></div>
+    <ul class="nav-links">
+      <li><a href="index.html">Tổng quan</a></li>
+      <li><a href="input.html" class="active">Dữ liệu đầu vào</a></li>
+      <li><a href="learning.html">Thiết kế học tập</a></li>
+      <li><a href="features-1.html">Tính năng 1-4</a></li>
+      <li><a href="features-2.html">Tính năng 5-8</a></li>
+      <li><a href="flow.html">Luồng trải nghiệm</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Header -->
+<section class="hero" style="padding-bottom: var(--space-lg);">
+  <div class="container">
+    <div class="hero-badge">Bước 2 trong Product Logic</div>
+    <h1>Từ JTBD → <span class="gradient-text">Nguồn dữ liệu</span></h1>
+    <p>Mỗi "Job" của người học quyết định nguồn input nào phù hợp nhất. Dữ liệu cốt lõi là <strong>subtitle/transcript</strong> — từ đó tạo ra mọi nội dung học.</p>
+  </div>
+</section>
+
+<!-- JTBD → Input Mapping -->
+<section class="section">
+  <div class="container">
+    <div class="section-label">JTBD → Input Mapping</div>
+    <h2>Mỗi Job cần <span class="gradient-text">nguồn dữ liệu nào?</span></h2>
+
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>JTBD</th>
+            <th>Input chính</th>
+            <th>Nguồn cụ thể</th>
+            <th>Dữ liệu khai thác</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="tag primary">J1</span> Xem phim không sub</td>
+            <td>Video + Subtitle</td>
+            <td>Netflix, YouTube, VieOn, FPT Play, Disney+, K-drama platforms</td>
+            <td>Subtitle files (.srt/.vtt), audio tracks, scene metadata</td>
+          </tr>
+          <tr>
+            <td><span class="tag teal">J2</span> Đọc sách gốc</td>
+            <td>Text gốc</td>
+            <td>Kindle, Project Gutenberg, Open Library, Webtoon, Manga apps</td>
+            <td>Full text, chapter segments, dialogue extraction</td>
+          </tr>
+          <tr>
+            <td><span class="tag pink">J3</span> Nghe nhạc hiểu lời</td>
+            <td>Lyrics + Audio</td>
+            <td>Spotify, Apple Music, YouTube Music, Musixmatch</td>
+            <td>Lyrics synced, audio segments, artist/genre metadata</td>
+          </tr>
+          <tr>
+            <td><span class="tag yellow">J4</span> Giao tiếp tự nhiên</td>
+            <td>Hội thoại thực</td>
+            <td>YouTube vlogs, podcast, reality shows, talk shows</td>
+            <td>Transcript hội thoại thực, slang/idiom database</td>
+          </tr>
+          <tr>
+            <td><span class="tag green">J5</span> Hiểu văn hoá</td>
+            <td>Đa định dạng</td>
+            <td>Documentaries, travel vlogs, blog văn hoá, Reddit, Quora</td>
+            <td>Cultural context articles, social norm explanations</td>
+          </tr>
+          <tr>
+            <td><span class="tag primary">J6</span> Nghe podcast/tin tức</td>
+            <td>Audio + Transcript</td>
+            <td>Spotify podcasts, BBC, NHK, TED Talks, NPR</td>
+            <td>Auto-transcript (Whisper), topic tags, difficulty score</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- Chi tiết nguồn dữ liệu -->
+<section class="section">
+  <div class="container">
+    <div class="section-label">Nguồn dữ liệu chi tiết</div>
+    <h2><span class="gradient-text">Video & Phim</span></h2>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon pink">▶️</div>
+        <h3>YouTube</h3>
+        <p>API chính thức hỗ trợ lấy CC/auto-caption. Kho nội dung khổng lồ: vlog, cooking, travel, podcast, education.</p>
+        <div style="margin-top: 12px;">
+          <span class="tag green">Miễn phí</span>
+          <span class="tag primary">API sẵn có</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-icon purple">🎬</div>
+        <h3>Netflix / VieOn / FPT Play</h3>
+        <p>Subtitle là dữ liệu mở (người dùng tự có khi đăng ký). App chỉ tham chiếu — link tới nền tảng gốc để xem.</p>
+        <div style="margin-top: 12px;">
+          <span class="tag yellow">Cần bản quyền</span>
+          <span class="tag teal">Subtitle only</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-icon teal">🎤</div>
+        <h3>TED Talks</h3>
+        <p>Miễn phí, CC license, chất lượng cao. Đã có sẵn bản dịch nhiều ngôn ngữ — rất phù hợp cho demo.</p>
+        <div style="margin-top: 12px;">
+          <span class="tag green">Miễn phí</span>
+          <span class="tag green">Đa ngôn ngữ</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-icon yellow">🎙️</div>
+        <h3>Podcast</h3>
+        <p>RSS public từ Spotify, Apple Podcast. Tự tạo transcript bằng Whisper AI — chất lượng cao, miễn phí.</p>
+        <div style="margin-top: 12px;">
+          <span class="tag green">Miễn phí</span>
+          <span class="tag primary">Whisper AI</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-icon pink">📱</div>
+        <h3>TikTok / Reels</h3>
+        <p>Nội dung ngắn, rất hợp Gen Z. Caption, hashtag, audio transcript. Cần cẩn trọng bản quyền.</p>
+        <div style="margin-top: 12px;">
+          <span class="tag yellow">Bản quyền phức tạp</span>
+          <span class="tag pink">Gen Z</span>
+        </div>
+      </div>
+    </div>
+
+    <h2 style="margin-top: var(--space-2xl);"><span class="gradient-text">Sách & Văn bản</span></h2>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon teal">📚</div>
+        <h3>Project Gutenberg</h3>
+        <p>70,000+ cuốn sách public domain hoàn toàn miễn phí. Nhiều tác phẩm kinh điển đa ngôn ngữ.</p>
+        <div style="margin-top: 12px;">
+          <span class="tag green">Miễn phí</span>
+          <span class="tag green">Public domain</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-icon blue">📰</div>
+        <h3>Tin tức (RSS)</h3>
+        <p>BBC, NHK, VnExpress — bài báo từ các nguồn mở. Dùng để học đọc hiểu với nội dung cập nhật hàng ngày.</p>
+        <div style="margin-top: 12px;">
+          <span class="tag green">Miễn phí</span>
+          <span class="tag teal">Cập nhật liên tục</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-icon pink">🎵</div>
+        <h3>Lyrics nhạc</h3>
+        <p>Musixmatch API hoặc manual. Rất engaging cho học ngôn ngữ — kết hợp cảm xúc + giai điệu + từ vựng.</p>
+        <div style="margin-top: 12px;">
+          <span class="tag primary">API sẵn có</span>
+          <span class="tag pink">Engaging cao</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-icon yellow">📖</div>
+        <h3>Manga / Webtoon</h3>
+        <p>Dialogue bubbles, narration — rất hấp dẫn cho Gen Z. Cần hợp tác hoặc dùng nội dung có license.</p>
+        <div style="margin-top: 12px;">
+          <span class="tag yellow">Cần hợp tác</span>
+          <span class="tag pink">Gen Z</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Cách lấy dữ liệu -->
+<section class="section" style="background: var(--primary-bg);">
+  <div class="container">
+    <div class="section-label">Chiến lược dữ liệu</div>
+    <h2>Cách lấy dữ liệu <span class="gradient-text">cho Demo & Production</span></h2>
+
+    <div class="card-grid">
+      <div class="card">
+        <h3 style="color: var(--success);">🟢 Cho Demo (ngay bây giờ)</h3>
+        <ul style="list-style: none; font-size: 0.9rem; color: var(--text-secondary);">
+          <li style="padding: 6px 0;">✅ YouTube API lấy subtitle miễn phí</li>
+          <li style="padding: 6px 0;">✅ Vài subtitle Netflix/K-drama mẫu (fake data)</li>
+          <li style="padding: 6px 0;">✅ TED Talks transcript (CC license)</li>
+          <li style="padding: 6px 0;">✅ Dialogue scripts tự viết cho cultural scenarios</li>
+          <li style="padding: 6px 0;">✅ AI-generated cultural notes</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 style="color: var(--primary);">🔵 Cho Production (sau này)</h3>
+        <ul style="list-style: none; font-size: 0.9rem; color: var(--text-secondary);">
+          <li style="padding: 6px 0;">📋 Partnership với Netflix, Spotify, VieOn cho subtitle/lyrics</li>
+          <li style="padding: 6px 0;">📋 Whisper AI tự động transcript podcast</li>
+          <li style="padding: 6px 0;">📋 Content team biên soạn Culture Deep Dive</li>
+          <li style="padding: 6px 0;">📋 User-generated: "Bring Your Own Content" (paste URL)</li>
+          <li style="padding: 6px 0;">📋 Community đóng góp cultural notes</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Content Processing Pipeline -->
+<section class="section">
+  <div class="container">
+    <div class="section-label">Pipeline</div>
+    <h2>Từ nội dung thô → <span class="gradient-text">Bài học tương tác</span></h2>
+    <p style="color: var(--text-secondary); margin-bottom: var(--space-xl);">Quy trình xử lý dữ liệu biến bất kỳ video/text/audio nào thành nội dung học 3 tầng.</p>
+
+    <!-- Vertical Flow -->
+    <div class="flow-vertical">
+      <div class="flow-v-step">
+        <div class="flow-v-line">
+          <div class="flow-v-dot">1</div>
+          <div class="flow-v-connector"></div>
+        </div>
+        <div class="flow-v-content">
+          <h4>Thu thập nội dung thô</h4>
+          <p>Video/audio/text từ YouTube, Netflix, podcast, sách... Dữ liệu cốt lõi là <strong>subtitle/transcript</strong>.</p>
+        </div>
+      </div>
+
+      <div class="flow-v-step">
+        <div class="flow-v-line">
+          <div class="flow-v-dot">2</div>
+          <div class="flow-v-connector"></div>
+        </div>
+        <div class="flow-v-content">
+          <h4>Trích xuất & căn chỉnh</h4>
+          <p>Subtitle extraction (YouTube API, Whisper). Sentence segmentation. Căn chỉnh audio ↔ text theo timestamp.</p>
+        </div>
+      </div>
+
+      <div class="flow-v-step">
+        <div class="flow-v-line">
+          <div class="flow-v-dot">3</div>
+          <div class="flow-v-connector"></div>
+        </div>
+        <div class="flow-v-content">
+          <h4>Phân tích bằng AI</h4>
+          <p>Tokenization, POS tagging, difficulty scoring (CEFR). Phát hiện: <strong>từ vựng mới, grammar patterns, slang/idioms, cultural references, emotional tone, register</strong>. Đánh dấu "Rich Points" — điểm người học dễ hiểu sai nếu chỉ dịch từng chữ.</p>
+        </div>
+      </div>
+
+      <div class="flow-v-step">
+        <div class="flow-v-line">
+          <div class="flow-v-dot">4</div>
+          <div class="flow-v-connector"></div>
+        </div>
+        <div class="flow-v-content">
+          <h4>Tạo nội dung học 3 tầng</h4>
+          <p>Với mỗi câu/đoạn, tạo ra:</p>
+          <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 8px;">
+            <span class="tag primary">Layer 1: Language Cards</span>
+            <span class="tag teal">Layer 2: Context Cards</span>
+            <span class="tag pink">Layer 3: Culture Cards</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flow-v-step">
+        <div class="flow-v-line">
+          <div class="flow-v-dot">5</div>
+        </div>
+        <div class="flow-v-content">
+          <h4>Xuất bài học tương tác</h4>
+          <p>Bài tập nghe (listening drill), flashcard từ vựng, bài đọc hiểu, role-play speaking, culture deep dive — tất cả từ <strong>1 nguồn content gốc</strong>.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pipeline detail box -->
+    <div class="highlight-box teal">
+      <h4 style="margin-bottom: 8px;">Ví dụ cụ thể:</h4>
+      <p style="font-size: 0.9rem;">
+        <strong>Input:</strong> 1 scene phim Atlanta (30 giây) — "Nah you good, just pull up. My mom's making her famous mac and cheese"
+      </p>
+      <p style="font-size: 0.9rem; margin-top: 8px;">
+        <strong>Output:</strong>
+      </p>
+      <ul style="font-size: 0.9rem; padding-left: 20px; color: var(--text-secondary);">
+        <li><strong>Language:</strong> Vocab cards cho "pull up", "you good", "mac and cheese" + grammar note (dropping "are")</li>
+        <li><strong>Context:</strong> Register analysis (cực kỳ informal, chỉ dùng với bạn thân) + formal alternatives</li>
+        <li><strong>Culture:</strong> Deep dive về "Cookout culture", "Soul food", ý nghĩa "mom's famous..." trong gia đình Mỹ</li>
+        <li><strong>Bài tập:</strong> Nghe điền từ, role-play đoạn hội thoại, quiz văn hoá, so sánh xuyên văn hoá</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Pagination -->
+<div class="container">
+  <div class="pagination">
+    <a href="index.html">
+      <span>←</span>
+      <div>
+        <div class="page-label">Trang trước</div>
+        <strong>Tổng quan</strong>
+      </div>
+    </a>
+    <a href="learning.html">
+      <div style="text-align: right;">
+        <div class="page-label">Trang tiếp</div>
+        <strong>Thiết kế học tập</strong>
+      </div>
+      <span>→</span>
+    </a>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer style="text-align: center; padding: var(--space-xl) 0; color: var(--text-light); font-size: 0.85rem;">
+  CultureLingo — Internal Product Demo — v0.2
+</footer>
+
+</body>
+</html>

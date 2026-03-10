@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thiết kế học tập — CultureLingo</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="nav">
+  <div class="container">
+    <div class="nav-logo">Culture<span>Lingo</span></div>
+    <ul class="nav-links">
+      <li><a href="index.html">Tổng quan</a></li>
+      <li><a href="input.html">Dữ liệu đầu vào</a></li>
+      <li><a href="learning.html" class="active">Thiết kế học tập</a></li>
+      <li><a href="features-1.html">Tính năng 1-4</a></li>
+      <li><a href="features-2.html">Tính năng 5-8</a></li>
+      <li><a href="flow.html">Luồng trải nghiệm</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Header -->
+<section class="hero" style="padding-bottom: var(--space-lg);">
+  <div class="container">
+    <div class="hero-badge">Bước 3 trong Product Logic</div>
+    <h1>Từ Transcript → <span class="gradient-text">Thiết kế học tập</span></h1>
+    <p>Khi có transcript/text rồi, ta tạo ra nội dung học như thế nào? Nguyên tắc cốt lõi: <strong>không chỉ dịch, mà HIỂU</strong> — ở 3 tầng sâu dần.</p>
+  </div>
+</section>
+
+<!-- 3-Layer Deep Understanding -->
+<section class="section">
+  <div class="container">
+    <div class="section-label">Nguyên tắc cốt lõi</div>
+    <h2>Mô hình <span class="gradient-text">"Deep Understanding"</span> — 3 tầng hiểu</h2>
+    <p style="color: var(--text-secondary); margin-bottom: var(--space-lg); max-width: 700px;">
+      Cách học truyền thống chỉ dịch: <em>"Yo what's good my nigga, you trippin'"</em> → "Ê sao rồi bạn, bạn làm quá đấy". <strong>CultureLingo</strong> đi sâu hơn rất nhiều:
+    </p>
+
+    <!-- 3 Layer Visual -->
+    <div class="layer-stack">
+      <div class="layer language">
+        <h4>Layer 1: Language — Ngôn ngữ</h4>
+        <ul>
+          <li><strong>Vocabulary:</strong> "trippin'" = tripping = phản ứng thái quá</li>
+          <li><strong>Grammar:</strong> Dropping "are" → informal register ("you trippin'" thay vì "you are tripping")</li>
+          <li><strong>Pronunciation:</strong> "what's good" → /wʌts gʊd/ nối âm, nuốt âm</li>
+          <li><strong>Slang:</strong> "my nigga" = cách gọi thân mật giữa bạn bè</li>
+        </ul>
+      </div>
+      <div class="layer context">
+        <h4>Layer 2: Context — Ngữ cảnh sử dụng</h4>
+        <ul>
+          <li><strong>Register:</strong> Chỉ dùng giữa bạn thân, cực kỳ informal</li>
+          <li><strong>Tone:</strong> Vui vẻ, trách nhẹ kiểu bạn bè</li>
+          <li><strong>Khi nào dùng được:</strong> Giữa bạn thân cùng nhóm → OK. Với người lạ → tuyệt đối không</li>
+          <li><strong>Thay thế an toàn:</strong> "What's up bro" (safe), "Hey man, you're overreacting" (neutral)</li>
+        </ul>
+      </div>
+      <div class="layer culture">
+        <h4>Layer 3: Culture — Văn hoá & Way of Living</h4>
+        <ul>
+          <li><strong>Lịch sử:</strong> Nguồn gốc từ "nigga" trong văn hoá Mỹ — từ sự áp bức → reclaim bởi cộng đồng African American</li>
+          <li><strong>Quy tắc xã hội:</strong> Ai được dùng, ai không? Vì sao? Nghe trong phim ≠ dùng ngoài đời</li>
+          <li><strong>Pop culture:</strong> Xuất hiện nhiều trong Hip-hop, phim — nhưng bối cảnh rất quan trọng</li>
+          <li><strong>Tương đương xuyên văn hoá:</strong> Từ nào trong tiếng Việt cũng có tính "in-group only" tương tự?</li>
+          <li><strong>Lời khuyên thực tế:</strong> Là người nước ngoài, bạn KHÔNG nên dùng từ này — đây là lý do...</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="highlight-box purple" style="margin-top: var(--space-xl);">
+      <h4 style="margin-bottom: 8px;">Tại sao 3 tầng quan trọng?</h4>
+      <p style="font-size: 0.9rem;">
+        Nếu chỉ dịch ở Layer 1, người học sẽ <strong>hiểu nghĩa nhưng không biết cách dùng</strong> — dẫn đến nói sai ngữ cảnh, vô tình xúc phạm, hoặc "nghe như robot". Layer 2 dạy <em>khi nào</em> dùng. Layer 3 dạy <em>vì sao</em> — và đó chính là hiểu văn hoá.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Phone Mockup: 3-Layer Explorer -->
+<section class="section" style="background: var(--primary-bg);">
+  <div class="container" style="text-align: center;">
+    <div class="section-label">Trải nghiệm trên app</div>
+    <h2>Tap vào bất kỳ từ nào → <span class="gradient-text">3 tầng hiện ra</span></h2>
+    <p style="color: var(--text-secondary); margin-bottom: var(--space-lg);">Mockup: Người học tap vào "pull up" trong transcript</p>
+
+    <div class="phone-mockup">
+      <div class="phone-screen">
+        <div class="phone-status-bar">
+          <span>9:41</span>
+          <span>📶 🔋</span>
+        </div>
+        <div class="phone-header">
+          🎬 Atlanta S2E5 — Cookout Scene
+        </div>
+        <div class="phone-body">
+          <!-- Transcript -->
+          <div class="phone-transcript-line">
+            <span class="time">00:32</span>
+            <span>"Yo what's good, you coming to the cookout this weekend?"</span>
+          </div>
+          <div class="phone-transcript-line active">
+            <span class="time">00:38</span>
+            <span>"Nah you good, just <strong style="color: var(--primary); text-decoration: underline; cursor: pointer;">pull up</strong>. My mom's making her famous mac and cheese"</span>
+          </div>
+
+          <!-- Word Popup -->
+          <div class="phone-word-popup">
+            <div class="word-title">"pull up"</div>
+            <div class="phone-tabs">
+              <div class="phone-tab active">Language</div>
+              <div class="phone-tab">Context</div>
+              <div class="phone-tab">Culture</div>
+            </div>
+            <div style="padding: 10px 0; font-size: 0.8rem; line-height: 1.6;">
+              <p><strong>Nghĩa:</strong> đến, ghé qua (informal)</p>
+              <p style="color: var(--text-secondary);">Không phải "kéo lên" (nghĩa gốc)</p>
+              <p style="margin-top: 6px;"><strong>Phát âm:</strong> /pʊl ʌp/</p>
+              <div style="display: flex; gap: 8px; margin-top: 10px;">
+                <span class="phone-btn primary">Thêm vào từ vựng</span>
+                <span class="phone-btn outline">Luyện tập</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="phone-bottom-bar">
+          <div class="tab-item">📥 Thư viện</div>
+          <div class="tab-item active">📖 Đang học</div>
+          <div class="tab-item">💬 Hội thoại</div>
+          <div class="tab-item">🌍 Passport</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Learning Design per JTBD -->
+<section class="section">
+  <div class="container">
+    <div class="section-label">Thiết kế theo từng Job</div>
+    <h2>Mỗi JTBD → <span class="gradient-text">Cách học riêng</span></h2>
+    <p style="color: var(--text-secondary); margin-bottom: var(--space-xl);">Cùng là transcript, nhưng mỗi Job cần một luồng học tập khác nhau.</p>
+
+    <!-- J1: Xem phim không sub -->
+    <div class="feature-card">
+      <div class="feature-header">
+        <div class="feature-number" style="background: linear-gradient(135deg, #6C5CE7, #A29BFE);">J1</div>
+        <div>
+          <h3 style="margin: 0;">Xem phim không sub → "Scene-Based Learning"</h3>
+          <div class="feature-meta">Input: 1 scene phim (30s-3 phút) + subtitle</div>
+        </div>
+      </div>
+
+      <div class="flow-pipeline">
+        <div class="flow-step active">Watch<br><small>Xem với sub ngôn ngữ đích</small></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">Breakdown<br><small>Tap từng câu, xem 3 tầng</small></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">Practice<br><small>Nghe lại không sub, điền từ</small></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">Speak<br><small>Đóng vai nhân vật</small></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">Rewatch<br><small>Xem lại, cảm nhận tiến bộ</small></div>
+      </div>
+
+      <div class="highlight-box teal">
+        <p style="font-size: 0.9rem;">
+          <strong>Mục tiêu dài hạn:</strong> Sau N bài, user thử xem 1 episode đầy đủ. App đo % hiểu được (self-report + quiz sau episode).
+        </p>
+      </div>
+    </div>
+
+    <!-- J2: Đọc sách gốc -->
+    <div class="feature-card">
+      <div class="feature-header">
+        <div class="feature-number" style="background: linear-gradient(135deg, #00CEC9, #55EFC4);">J2</div>
+        <div>
+          <h3 style="margin: 0;">Đọc sách gốc → "Page-Based Learning"</h3>
+          <div class="feature-meta">Input: 1 đoạn sách/truyện (1-2 trang)</div>
+        </div>
+      </div>
+
+      <div class="flow-pipeline">
+        <div class="flow-step active">Read<br><small>Đọc gốc, tap từ lạ</small></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">Deep Words<br><small>AI highlight từ quan trọng</small></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">Culture Note<br><small>Pop-up giải thích văn hoá</small></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">Quiz<br><small>Hiểu nội dung? Hiểu nuance?</small></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">Journal<br><small>Viết 1-2 câu phản hồi</small></div>
+      </div>
+    </div>
+
+    <!-- J3: Nghe nhạc hiểu lời -->
+    <div class="feature-card">
+      <div class="feature-header">
+        <div class="feature-number" style="background: linear-gradient(135deg, #FD79A8, #FDCB6E);">J3</div>
+        <div>
+          <h3 style="margin: 0;">Nghe nhạc hiểu lời → "Lyrics-Based Learning"</h3>
+          <div class="feature-meta">Input: 1 bài hát + lyrics synced</div>
+        </div>
+      </div>
+
+      <div class="flow-pipeline">
+        <div class="flow-step active">Listen<br><small>Nghe, lyrics hiện theo nhịp</small></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">Explore<br><small>Tap dòng lyrics → 3 tầng</small></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">Sing Along<br><small>Karaoke, luyện phát âm</small></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">Fill Lyrics<br><small>Nghe lại, điền từ bị ẩn</small></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">Story<br><small>Bối cảnh văn hoá bài hát</small></div>
+      </div>
+    </div>
+
+    <!-- J4: Giao tiếp tự nhiên -->
+    <div class="feature-card">
+      <div class="feature-header">
+        <div class="feature-number" style="background: linear-gradient(135deg, #FDCB6E, #E17055);">J4</div>
+        <div>
+          <h3 style="margin: 0;">Giao tiếp tự nhiên → "Conversation-Based Learning"</h3>
+          <div class="feature-meta">Input: Hội thoại thực từ vlog/podcast/reality show</div>
+        </div>
+      </div>
+
+      <div class="flow-pipeline">
+        <div class="flow-step active">Observe<br><small>Xem/nghe hội thoại thực</small></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">Decode<br><small>Formal hay informal? Cảm xúc?</small></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">Role-play<br><small>AI đóng vai, user đối thoại</small></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">Free Talk<br><small>AI mở rộng, nói tự do</small></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">Feedback<br><small>Tự nhiên không? Register đúng?</small></div>
+      </div>
+    </div>
+
+    <!-- J5: Hiểu văn hoá -->
+    <div class="feature-card">
+      <div class="feature-header">
+        <div class="feature-number" style="background: linear-gradient(135deg, #00B894, #55EFC4);">J5</div>
+        <div>
+          <h3 style="margin: 0;">Hiểu văn hoá → "Culture Deep Dive"</h3>
+          <div class="feature-meta">Input: Documentary, travel vlog, cultural article, social media</div>
+        </div>
+      </div>
+
+      <div class="flow-pipeline">
+        <div class="flow-step active">Discover<br><small>Xem/đọc về 1 khía cạnh văn hoá</small></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">Rich Points<br><small>Highlight điểm "bất ngờ"</small></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">Compare<br><small>"Ở nước bạn thì sao?"</small></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">Vocab<br><small>Từ vựng chủ đề văn hoá</small></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">Scenario<br><small>Tình huống giả lập</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- So sánh cách tiếp cận -->
+<section class="section" style="background: var(--primary-bg);">
+  <div class="container">
+    <div class="section-label">So sánh</div>
+    <h2>CultureLingo vs <span class="gradient-text">cách học truyền thống</span></h2>
+
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Khía cạnh</th>
+            <th>Cách truyền thống (Duolingo, sách giáo khoa)</th>
+            <th>CultureLingo (3-Layer)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Gặp từ mới</strong></td>
+            <td>Dịch → nhớ nghĩa → qua bài tiếp</td>
+            <td>Hiểu nghĩa → biết khi nào dùng → hiểu vì sao người bản xứ nói vậy</td>
+          </tr>
+          <tr>
+            <td><strong>Ngữ cảnh</strong></td>
+            <td>Câu ví dụ giáo khoa, tách rời thực tế</td>
+            <td>Trích từ phim/nhạc/sách thật — đúng ngữ cảnh người bản xứ dùng</td>
+          </tr>
+          <tr>
+            <td><strong>Văn hoá</strong></td>
+            <td>Đôi khi có "fun fact" riêng biệt</td>
+            <td>Tích hợp vào MỌI bài học — văn hoá là lý do ngôn ngữ tồn tại</td>
+          </tr>
+          <tr>
+            <td><strong>Register</strong></td>
+            <td>Hầu hết dạy neutral/formal</td>
+            <td>Dạy full spectrum: slang ↔ casual ↔ formal, biết khi nào chuyển</td>
+          </tr>
+          <tr>
+            <td><strong>Slang & Idiom</strong></td>
+            <td>Hiếm khi dạy, hoặc dạy tách rời</td>
+            <td>Gặp trong context thực → hiểu nghĩa + nguồn gốc văn hoá</td>
+          </tr>
+          <tr>
+            <td><strong>Kết quả</strong></td>
+            <td>Biết ngữ pháp đúng nhưng "nghe như robot"</td>
+            <td>Nói tự nhiên, hiểu người bản xứ, tránh được landmine văn hoá</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- Content Generation Detail -->
+<section class="section">
+  <div class="container">
+    <div class="section-label">Chi tiết nội dung tạo ra</div>
+    <h2>Với mỗi câu/đoạn, <span class="gradient-text">AI tạo ra những gì?</span></h2>
+
+    <div class="card-grid-3">
+      <!-- Layer 1 cards -->
+      <div class="card" style="border-left: 4px solid var(--primary);">
+        <h4 style="color: var(--primary);">Layer 1: Language Cards</h4>
+        <ul style="list-style: none; font-size: 0.88rem; color: var(--text-secondary);">
+          <li style="padding: 4px 0;">📝 Vocab flashcard + phát âm</li>
+          <li style="padding: 4px 0;">📐 Grammar breakdown</li>
+          <li style="padding: 4px 0;">✏️ Bài tập điền từ (cloze)</li>
+          <li style="padding: 4px 0;">🎧 Bài nghe điền (listening drill)</li>
+        </ul>
+      </div>
+
+      <!-- Layer 2 cards -->
+      <div class="card" style="border-left: 4px solid var(--secondary);">
+        <h4 style="color: var(--secondary);">Layer 2: Context Cards</h4>
+        <ul style="list-style: none; font-size: 0.88rem; color: var(--text-secondary);">
+          <li style="padding: 4px 0;">🔄 Khi nào dùng / không dùng</li>
+          <li style="padding: 4px 0;">📊 Register explanation (formal ↔ slang)</li>
+          <li style="padding: 4px 0;">💡 Cách diễn đạt tương đương theo mức lịch sự</li>
+          <li style="padding: 4px 0;">🎭 Dialogue practice (role-play)</li>
+        </ul>
+      </div>
+
+      <!-- Layer 3 cards -->
+      <div class="card" style="border-left: 4px solid var(--accent);">
+        <h4 style="color: var(--accent);">Layer 3: Culture Cards</h4>
+        <ul style="list-style: none; font-size: 0.88rem; color: var(--text-secondary);">
+          <li style="padding: 4px 0;">🌍 Bài đọc ngắn về bối cảnh văn hoá</li>
+          <li style="padding: 4px 0;">🔀 So sánh xuyên văn hoá</li>
+          <li style="padding: 4px 0;">💥 "Rich Point" deep dive</li>
+          <li style="padding: 4px 0;">✅ Do's and Don'ts thực tế</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="highlight-box yellow" style="margin-top: var(--space-lg);">
+      <h4 style="margin-bottom: 8px;">💡 "Rich Points" là gì?</h4>
+      <p style="font-size: 0.9rem;">
+        Khái niệm từ nhà ngôn ngữ học Michael Agar — là những khoảnh khắc người học nhận ra văn hoá mình <strong>khác biệt</strong> với văn hoá đích. Ví dụ: người Việt hỏi "Ăn gì chưa?" không phải hỏi về ăn uống mà là cách chào hỏi. Đây là <strong>động lực chính cho học tập liên văn hoá</strong> — vì tạo ra sự tò mò và cognitive dissonance buộc người học suy nghĩ theo cách mới.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Pagination -->
+<div class="container">
+  <div class="pagination">
+    <a href="input.html">
+      <span>←</span>
+      <div>
+        <div class="page-label">Trang trước</div>
+        <strong>Dữ liệu đầu vào</strong>
+      </div>
+    </a>
+    <a href="features-1.html">
+      <div style="text-align: right;">
+        <div class="page-label">Trang tiếp</div>
+        <strong>Tính năng 1-4</strong>
+      </div>
+      <span>→</span>
+    </a>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer style="text-align: center; padding: var(--space-xl) 0; color: var(--text-light); font-size: 0.85rem;">
+  CultureLingo — Internal Product Demo — v0.2
+</footer>
+
+</body>
+</html>

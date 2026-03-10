@@ -1,0 +1,348 @@
+export const cultureDives = [
+  {
+    id: "cookout-culture",
+    title: "The Cookout — Hơn cả một bữa tiệc",
+    emoji: "🍖",
+    category: "Community",
+    culture: "African American",
+    readTime: "4 phút",
+    fromContent: "Atlanta S2E5",
+    heroColor: "from-orange-500 to-red-500",
+    summary: "Cookout trong văn hóa African American không chỉ là BBQ — đó là nơi cả cộng đồng gắn kết.",
+    sections: [
+      {
+        type: "intro",
+        title: "Cookout là gì?",
+        content: "Trong văn hóa Mỹ, đặc biệt là văn hóa African American, 'cookout' là một sự kiện cộng đồng ngoài trời nơi mọi người tụ tập để nướng thịt, ăn uống, nghe nhạc và kết nối. Không giống BBQ thông thường, cookout mang tính cộng đồng rất mạnh — toàn bộ khu phố, gia đình mở rộng, bạn bè đều có thể đến.",
+      },
+      {
+        type: "comparison",
+        title: "So với Việt Nam",
+        vietnam: "Đám giỗ, tiệc tất niên, hoặc cơm khách — nơi gia đình mở rộng và hàng xóm tụ họp. Mỗi nhà thường mang 1 món ăn đóng góp.",
+        usa: "Cookout — thường có ribs, chicken, mac and cheese, potato salad. Ai đó nói 'pull up to the cookout' = bạn được mời thật sự và được chào đón.",
+      },
+      {
+        type: "dosDonts",
+        title: "Lưu ý khi tham gia",
+        dos: [
+          "Mang theo 1 món ăn hoặc đồ uống — đây là phép lịch sự cơ bản",
+          "Đến với tinh thần vui vẻ, sẵn sàng giao lưu",
+          "Khen món ăn của người tổ chức — đặc biệt mac and cheese!",
+          "Ở lại lâu — về sớm bị coi là không vui",
+        ],
+        donts: [
+          "Không đến tay không nếu bạn không thân lắm",
+          "Không chỉ ăn rồi đi — hãy ở lại trò chuyện",
+          "Không phán xét cách nấu — mỗi nhà có công thức riêng",
+        ],
+      },
+      {
+        type: "language",
+        title: "Từ vựng liên quan",
+        words: [
+          { term: "Pull up", meaning: "Đến, ghé qua (casual)" },
+          { term: "Bring a dish", meaning: "Mang 1 món ăn đến" },
+          { term: "Potluck", meaning: "Tiệc mọi người mang 1 món" },
+          { term: "Kickback", meaning: "Tiệc nhỏ, thoải mái" },
+        ],
+      },
+    ],
+  },
+  {
+    id: "potluck-culture",
+    title: "Potluck — Văn hóa chia sẻ trong ẩm thực",
+    emoji: "🍲",
+    category: "Food & Social",
+    culture: "American",
+    readTime: "3 phút",
+    fromContent: "Atlanta S2E5",
+    heroColor: "from-green-500 to-teal-500",
+    summary: "Potluck là kiểu tiệc mọi người mang 1 món — phản ánh tinh thần bình đẳng và chia sẻ trong văn hóa Mỹ.",
+    sections: [
+      {
+        type: "intro",
+        title: "Potluck là gì?",
+        content: "Potluck là buổi tiệc nơi mọi người mang 1 món ăn để chia sẻ. Không ai phải lo hết — mọi người đóng góp một phần. Đây là hình thức rất phổ biến ở trường học, công ty, nhà thờ và cộng đồng Mỹ.",
+      },
+      {
+        type: "comparison",
+        title: "So với Việt Nam",
+        vietnam: "Khi đi ăn chung, thường 1 người mời và lo hết. Khách mang quà (trái cây, bánh) nhưng ít khi tự nấu món mang đến.",
+        usa: "Potluck: mọi người bình đẳng đóng góp. Thường có sign-up sheet để tránh trùng món. Mang món tự nấu được đánh giá cao hơn mua sẵn.",
+      },
+      {
+        type: "dosDonts",
+        title: "Lưu ý",
+        dos: [
+          "Hỏi trước nên mang món gì để không bị trùng",
+          "Ghi tên mình lên món ăn (để người khác biết)",
+          "Món tự nấu được yêu thích hơn món mua sẵn",
+        ],
+        donts: [
+          "Không mang món có allergen phổ biến mà không ghi chú",
+          "Không chỉ ăn món ngon nhất rồi bỏ qua món khác",
+        ],
+      },
+      {
+        type: "language",
+        title: "Từ vựng liên quan",
+        words: [
+          { term: "Sign-up sheet", meaning: "Bảng đăng ký món mang đến" },
+          { term: "Dish to pass", meaning: "Món ăn để chia sẻ" },
+          { term: "BYOB", meaning: "Bring Your Own Beverage — tự mang đồ uống" },
+        ],
+      },
+    ],
+  },
+  {
+    id: "gen-z-slang",
+    title: "Gen Z Slang — Ngôn ngữ của thế hệ Z",
+    emoji: "💬",
+    category: "Language Evolution",
+    culture: "Youth / Internet",
+    readTime: "5 phút",
+    fromContent: "Atlanta S2E5",
+    heroColor: "from-purple-500 to-pink-500",
+    summary: "Bet, fire, slay, no cap — hiểu ngôn ngữ Gen Z để giao tiếp tự nhiên với giới trẻ Mỹ.",
+    sections: [
+      {
+        type: "intro",
+        title: "Gen Z nói gì?",
+        content: "Gen Z (sinh 1997-2012) đã tạo ra hoặc phổ biến hóa hàng loạt slang thông qua TikTok, Twitter và văn hóa internet. Nhiều từ bắt nguồn từ AAVE (African American Vernacular English) và văn hóa hip-hop, sau đó lan rộng ra toàn cầu.",
+      },
+      {
+        type: "comparison",
+        title: "So với Việt Nam",
+        vietnam: "Giới trẻ Việt cũng có slang riêng: 'đỉnh nóc', 'slay', 'real', 'vibe'. Nhiều từ mượn thẳng từ tiếng Anh.",
+        usa: "'Bet' (OK), 'Fire' (tuyệt vời), 'Slay' (làm tốt), 'No cap' (không nói đùa), 'It's giving' (nó tỏa ra vibe...). Nhiều từ này bắt nguồn từ cộng đồng LGBTQ+ và African American.",
+      },
+      {
+        type: "dosDonts",
+        title: "Lưu ý khi dùng",
+        dos: [
+          "Dùng với bạn bè cùng tuổi trong hội thoại casual",
+          "Hiểu nguồn gốc văn hóa của từ trước khi dùng",
+          "Chấp nhận slang thay đổi rất nhanh — từ 'cool' hôm nay có thể 'cringe' ngày mai",
+        ],
+        donts: [
+          "Không dùng trong email, bài luận, phỏng vấn xin việc",
+          "Không ép mình dùng nếu không tự nhiên — sẽ nghe 'trying too hard'",
+          "Người lớn tuổi có thể không hiểu hoặc hiểu sai",
+        ],
+      },
+      {
+        type: "language",
+        title: "Bảng slang cần biết",
+        words: [
+          { term: "Bet", meaning: "OK, đồng ý (từ 'You bet')" },
+          { term: "Fire", meaning: "Tuyệt vời, xuất sắc" },
+          { term: "Dope", meaning: "Cool, tuyệt vời" },
+          { term: "No cap", meaning: "Không nói đùa, thật lòng" },
+          { term: "Slay", meaning: "Làm quá giỏi, quá đẹp" },
+          { term: "Vibe", meaning: "Cảm giác, năng lượng" },
+        ],
+      },
+    ],
+  },
+  {
+    id: "comfort-food",
+    title: "Comfort Food — Ẩm thực của ký ức",
+    emoji: "🧀",
+    category: "Food & Identity",
+    culture: "American",
+    readTime: "4 phút",
+    fromContent: "Atlanta S2E5",
+    heroColor: "from-yellow-500 to-orange-500",
+    summary: "Mac and cheese, fried chicken, apple pie — món ăn không chỉ để ăn mà còn là bản sắc gia đình.",
+    sections: [
+      {
+        type: "intro",
+        title: "Comfort food là gì?",
+        content: "Comfort food là những món ăn gợi lên cảm giác ấm áp, hoài niệm về nhà và gia đình. Ở Mỹ, mỗi vùng miền, mỗi cộng đồng có comfort food riêng. 'My mom's famous mac and cheese' không chỉ là món ăn — đó là bản sắc gia đình, là ký ức, là tình yêu được truyền qua thế hệ.",
+      },
+      {
+        type: "comparison",
+        title: "So với Việt Nam",
+        vietnam: "Phở, bún bò Huế, cơm tấm — mỗi người có 'món mẹ nấu' riêng. 'Bánh mì mẹ làm ngon nhất' là câu nói quen thuộc.",
+        usa: "Mac and cheese, fried chicken, mashed potatoes, apple pie. 'Mom's recipe' là thứ thiêng liêng — mỗi gia đình có 1 công thức bí mật riêng.",
+      },
+      {
+        type: "dosDonts",
+        title: "Lưu ý",
+        dos: [
+          "Khen comfort food của ai đó = cách kết bạn tốt nhất",
+          "Hỏi công thức = thể hiện sự quan tâm (nhưng có thể bị từ chối vì 'family secret')",
+          "Chia sẻ comfort food của bạn = tạo kết nối văn hóa",
+        ],
+        donts: [
+          "Không so sánh xấu món ăn của người khác với món khác",
+          "Không nói 'chỉ là mac and cheese thôi mà' — với họ đó là tình cảm",
+        ],
+      },
+      {
+        type: "language",
+        title: "Từ vựng liên quan",
+        words: [
+          { term: "Comfort food", meaning: "Món ăn mang lại cảm giác ấm áp" },
+          { term: "Soul food", meaning: "Món ăn truyền thống African American" },
+          { term: "Mom's famous...", meaning: "Món nổi tiếng của mẹ (niềm tự hào gia đình)" },
+          { term: "Family recipe", meaning: "Công thức gia truyền" },
+        ],
+      },
+    ],
+  },
+  {
+    id: "time-culture",
+    title: "Social Time vs Professional Time",
+    emoji: "⏰",
+    category: "Social Norms",
+    culture: "American",
+    readTime: "3 phút",
+    fromContent: "Atlanta S2E5",
+    heroColor: "from-blue-500 to-indigo-500",
+    summary: "Ở Mỹ, đến trễ 30 phút đi tiệc là OK — nhưng trễ 5 phút họp công việc là không chấp nhận được.",
+    sections: [
+      {
+        type: "intro",
+        title: "Hai loại thời gian",
+        content: "Văn hóa Mỹ có sự phân biệt rõ ràng giữa 'social time' và 'professional time'. Tiệc bạn bè, cookout, house party — thời gian linh hoạt, đến trễ 15-30 phút là bình thường. Nhưng họp công việc, phỏng vấn, hẹn bác sĩ — phải đúng giờ hoặc đến sớm 5 phút.",
+      },
+      {
+        type: "comparison",
+        title: "So với Việt Nam",
+        vietnam: "'Giờ cao su' áp dụng cho cả việc lẫn chơi. Đến trễ 15-30 phút khá phổ biến. Nhưng giới trẻ đang dần thay đổi — đúng giờ được coi trọng hơn.",
+        usa: "Social: linh hoạt. Professional: nghiêm ngặt. Đến trễ họp mà không báo trước = bất lịch sự. Gửi tin 'Running 5 min late' là tối thiểu.",
+      },
+      {
+        type: "dosDonts",
+        title: "Lưu ý",
+        dos: [
+          "Tiệc: đến trễ 15-30 phút là bình thường (thậm chí được mong đợi)",
+          "Công việc: đến đúng giờ hoặc sớm 5 phút",
+          "Nếu trễ — LUÔN gửi tin báo trước",
+        ],
+        donts: [
+          "Không đến quá sớm khi được mời tiệc — chủ nhà có thể chưa sẵn sàng",
+          "Không đến trễ họp mà không thông báo",
+          "Không coi 'flexible time' là áp dụng cho mọi tình huống",
+        ],
+      },
+      {
+        type: "language",
+        title: "Từ vựng liên quan",
+        words: [
+          { term: "Fashionably late", meaning: "Đến trễ 1 chút (chấp nhận được ở tiệc)" },
+          { term: "Running late", meaning: "Đang bị trễ" },
+          { term: "On the dot", meaning: "Đúng giờ chính xác" },
+          { term: "No-show", meaning: "Không đến mà không báo" },
+        ],
+      },
+    ],
+  },
+  {
+    id: "slang-evolution",
+    title: "Từ xấu thành cool — Hành trình của Slang",
+    emoji: "🔄",
+    category: "Language Evolution",
+    culture: "American / Global",
+    readTime: "4 phút",
+    fromContent: "Atlanta S2E5",
+    heroColor: "from-pink-500 to-rose-500",
+    summary: "'Dope' từ ma túy thành lời khen. 'Sick' từ bệnh thành tuyệt vời. Slang luôn biến đổi và được 'reclaim'.",
+    sections: [
+      {
+        type: "intro",
+        title: "Slang thay đổi như thế nào?",
+        content: "'Dope' gốc là tiếng lóng chỉ ma túy. 'Sick' nghĩa là bệnh. 'Bad' nghĩa là xấu. Nhưng qua thời gian và văn hóa, chúng đã được 'reclaim' — lấy lại và cho ý nghĩa mới, tích cực. Đây là hiện tượng tự nhiên trong mọi ngôn ngữ.",
+      },
+      {
+        type: "comparison",
+        title: "So với Việt Nam",
+        vietnam: "'Điên' từ chỉ người mất trí → 'Điên thật!' = khen. 'Ghét' từ tiêu cực → 'Ghét bạn quá!' = thương. 'Kinh' từ sợ hãi → 'Kinh thật!' = thán phục.",
+        usa: "'Dope' (ma túy → tuyệt vời), 'Sick' (bệnh → xuất sắc), 'Bad' (xấu → cool), 'Wicked' (ác → tuyệt vời, đặc biệt ở Boston).",
+      },
+      {
+        type: "dosDonts",
+        title: "Lưu ý",
+        dos: [
+          "Hiểu context trước khi dùng — cùng 1 từ có thể có 2 nghĩa",
+          "Chú ý đối tượng — người lớn có thể hiểu theo nghĩa cũ",
+          "Quan sát cách bạn bè bạn dùng trước khi bắt chước",
+        ],
+        donts: [
+          "Không dùng slang trong formal writing",
+          "Không giả định mọi người đều hiểu slang mới nhất",
+        ],
+      },
+      {
+        type: "language",
+        title: "Slang đã 'reclaim'",
+        words: [
+          { term: "Dope", meaning: "Ma túy → Tuyệt vời" },
+          { term: "Sick", meaning: "Bệnh → Xuất sắc" },
+          { term: "Bad", meaning: "Xấu → Cool (Michael Jackson - 'Bad')" },
+          { term: "Wicked", meaning: "Ác → Tuyệt vời (New England slang)" },
+          { term: "Lit", meaning: "Say → Vui, sôi động" },
+        ],
+      },
+    ],
+  },
+  {
+    id: "vibe-culture",
+    title: "Vibe Culture — Văn hóa cảm xúc",
+    emoji: "✨",
+    category: "Modern Culture",
+    culture: "Global / Youth",
+    readTime: "3 phút",
+    fromContent: "Atlanta S2E5",
+    heroColor: "from-violet-500 to-purple-500",
+    summary: "'Good vibes only' — thế hệ trẻ Mỹ coi trọng cảm xúc và năng lượng tích cực hơn bất cứ điều gì.",
+    sections: [
+      {
+        type: "intro",
+        title: "Vibe là gì?",
+        content: "'Vibe' từ 'vibration' — cảm nhận năng lượng, cảm xúc của một người, không gian hoặc tình huống. Trong văn hóa Mỹ hiện đại, 'vibe' trở thành một tiêu chuẩn đánh giá: 'This place has a good vibe', 'We vibe well together', 'Vibe check!' Phản ánh xu hướng coi trọng cảm xúc và kết nối cá nhân.",
+      },
+      {
+        type: "comparison",
+        title: "So với Việt Nam",
+        vietnam: "'Hợp nhau', 'có duyên', 'hợp gu' — nhưng chỉ áp dụng cho người. Tiếng Việt chưa có từ tương đương chính xác cho 'vibe' của không gian.",
+        usa: "'Vibe' áp dụng cho tất cả: người (We vibe), không gian (chill vibe), sự kiện (the vibe was off), thậm chí thời trang (outfit gives good vibes).",
+      },
+      {
+        type: "dosDonts",
+        title: "Lưu ý",
+        dos: [
+          "'Good vibes' là lời khen — dùng nhiều trong đời sống hàng ngày",
+          "'We vibe' = chúng mình hợp nhau — có thể dùng cho bạn bè và cả crush",
+          "'Vibe check' = kiểm tra cảm giác chung — thường dùng hài hước",
+        ],
+        donts: [
+          "'The vibe is off' = có gì đó không ổn — nên chú ý",
+          "'Don't kill the vibe' = đừng phá đám — dùng nói khi ai đó đang vui",
+        ],
+      },
+      {
+        type: "language",
+        title: "Từ vựng liên quan",
+        words: [
+          { term: "Vibe", meaning: "Cảm giác, năng lượng" },
+          { term: "Vibe check", meaning: "Kiểm tra cảm xúc/không khí" },
+          { term: "Good vibes only", meaning: "Chỉ năng lượng tích cực" },
+          { term: "Vibing", meaning: "Đang tận hưởng, cảm thấy tốt" },
+          { term: "It's a vibe", meaning: "Nó tuyệt vời, đáng trải nghiệm" },
+        ],
+      },
+    ],
+  },
+];
+
+export const cultureCategories = [
+  "All",
+  "Community",
+  "Food & Social",
+  "Food & Identity",
+  "Language Evolution",
+  "Social Norms",
+  "Modern Culture",
+];

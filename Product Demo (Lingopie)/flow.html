@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luồng trải nghiệm — CultureLingo</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="nav">
+  <div class="container">
+    <div class="nav-logo">Culture<span>Lingo</span></div>
+    <ul class="nav-links">
+      <li><a href="index.html">Tổng quan</a></li>
+      <li><a href="input.html">Dữ liệu đầu vào</a></li>
+      <li><a href="learning.html">Thiết kế học tập</a></li>
+      <li><a href="features-1.html">Tính năng 1-4</a></li>
+      <li><a href="features-2.html">Tính năng 5-8</a></li>
+      <li><a href="flow.html" class="active">Luồng trải nghiệm</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Header -->
+<section class="hero" style="padding-bottom: var(--space-lg);">
+  <div class="container">
+    <div class="hero-badge">Toàn cảnh sản phẩm</div>
+    <h1>Luồng <span class="gradient-text">trải nghiệm người dùng</span></h1>
+    <p>Từ lúc mở app lần đầu → học hàng ngày → vòng lặp nội dung. Cùng với bảng ưu tiên tính năng và các câu hỏi mở.</p>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- ONBOARDING FLOW -->
+<!-- ============================================ -->
+<section class="section">
+  <div class="container">
+    <div class="section-label">Bước 1</div>
+    <h2><span class="gradient-text">Onboarding</span> — Lần đầu mở app</h2>
+    <p style="color: var(--text-secondary); margin-bottom: var(--space-lg);">4 bước đơn giản để cá nhân hoá trải nghiệm. Mục tiêu: dưới 2 phút.</p>
+
+    <div style="display: flex; gap: var(--space-lg); flex-wrap: wrap;">
+      <!-- Step cards -->
+      <div class="card" style="flex: 1; min-width: 220px; border-top: 3px solid var(--primary);">
+        <div style="font-size: 0.75rem; font-weight: 700; color: var(--primary); margin-bottom: 8px;">BƯỚC 1</div>
+        <h4>Chọn ngôn ngữ</h4>
+        <p style="font-size: 0.85rem;">Bạn muốn học ngôn ngữ nào?</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px;">
+          <span class="tag primary">🇺🇸 Tiếng Anh</span>
+          <span class="tag teal">🇰🇷 Tiếng Hàn</span>
+          <span class="tag pink">🇯🇵 Tiếng Nhật</span>
+          <span class="tag yellow">🇻🇳 Tiếng Việt</span>
+        </div>
+      </div>
+
+      <div class="card" style="flex: 1; min-width: 220px; border-top: 3px solid var(--secondary);">
+        <div style="font-size: 0.75rem; font-weight: 700; color: var(--secondary); margin-bottom: 8px;">BƯỚC 2</div>
+        <h4>Xác định trình độ</h4>
+        <p style="font-size: 0.85rem;">Quiz nhanh 5 câu hoặc tự chọn level (A1 → C2)</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px;">
+          <span class="tag green">A1-A2 Mới bắt đầu</span>
+          <span class="tag primary">B1-B2 Trung cấp</span>
+          <span class="tag pink">C1-C2 Nâng cao</span>
+        </div>
+      </div>
+
+      <div class="card" style="flex: 1; min-width: 220px; border-top: 3px solid var(--accent);">
+        <div style="font-size: 0.75rem; font-weight: 700; color: var(--accent); margin-bottom: 8px;">BƯỚC 3</div>
+        <h4>Sở thích nội dung</h4>
+        <p style="font-size: 0.85rem;">Bạn thích học qua gì?</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px;">
+          <span class="tag primary">🎬 Phim & Series</span>
+          <span class="tag teal">🎵 Nhạc</span>
+          <span class="tag pink">📖 Sách & Truyện</span>
+          <span class="tag yellow">🎙 Podcast</span>
+        </div>
+      </div>
+
+      <div class="card" style="flex: 1; min-width: 220px; border-top: 3px solid var(--warning);">
+        <div style="font-size: 0.75rem; font-weight: 700; color: var(--warning); margin-bottom: 8px;">BƯỚC 4</div>
+        <h4>Mục tiêu (JTBD)</h4>
+        <p style="font-size: 0.85rem;">Bạn muốn đạt được gì?</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px;">
+          <span class="tag primary">🎬 Xem phim không sub</span>
+          <span class="tag teal">💬 Giao tiếp tự nhiên</span>
+          <span class="tag pink">🌍 Hiểu văn hoá</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- DAILY EXPERIENCE -->
+<!-- ============================================ -->
+<section class="section" style="background: var(--primary-bg);">
+  <div class="container">
+    <div class="section-label">Bước 2</div>
+    <h2><span class="gradient-text">Trải nghiệm hàng ngày</span> — Một ngày học mẫu</h2>
+    <p style="color: var(--text-secondary); margin-bottom: var(--space-xl);">Thiết kế cho 15-20 phút/ngày, chia thành 3 phiên ngắn.</p>
+
+    <div class="card-grid-3">
+      <!-- Sáng -->
+      <div class="card" style="border-left: 4px solid var(--warning);">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+          <div style="width: 36px; height: 36px; border-radius: 50%; background: #FFF8E1; display: flex; align-items: center; justify-content: center;">☀️</div>
+          <div>
+            <h4 style="margin: 0;">Sáng — 5 phút</h4>
+            <div style="font-size: 0.75rem; color: var(--text-secondary);">Khám phá mới</div>
+          </div>
+        </div>
+        <ul style="list-style: none; font-size: 0.85rem; color: var(--text-secondary);">
+          <li style="padding: 4px 0;">📱 Push: "Hôm nay khám phá văn hoá trà đạo Nhật Bản!"</li>
+          <li style="padding: 4px 0;">▶️ Xem clip 2 phút (Smart Transcript Player)</li>
+          <li style="padding: 4px 0;">❓ 3 câu quiz nhanh về nội dung + văn hoá</li>
+        </ul>
+      </div>
+
+      <!-- Trưa -->
+      <div class="card" style="border-left: 4px solid var(--primary);">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+          <div style="width: 36px; height: 36px; border-radius: 50%; background: var(--primary-bg); display: flex; align-items: center; justify-content: center;">🌤️</div>
+          <div>
+            <h4 style="margin: 0;">Trưa — 3 phút</h4>
+            <div style="font-size: 0.75rem; color: var(--text-secondary);">Ôn tập nhanh</div>
+          </div>
+        </div>
+        <ul style="list-style: none; font-size: 0.85rem; color: var(--text-secondary);">
+          <li style="padding: 4px 0;">📱 Push: "Ôn tập nào!"</li>
+          <li style="padding: 4px 0;">🔄 Flashcard spaced repetition (từ vựng + văn hoá)</li>
+          <li style="padding: 4px 0;">💡 1 cultural fun fact về chủ đề đang học</li>
+        </ul>
+      </div>
+
+      <!-- Tối -->
+      <div class="card" style="border-left: 4px solid var(--secondary);">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+          <div style="width: 36px; height: 36px; border-radius: 50%; background: #E0F7F6; display: flex; align-items: center; justify-content: center;">🌙</div>
+          <div>
+            <h4 style="margin: 0;">Tối — 7-10 phút</h4>
+            <div style="font-size: 0.75rem; color: var(--text-secondary);">Luyện tập sâu</div>
+          </div>
+        </div>
+        <ul style="list-style: none; font-size: 0.85rem; color: var(--text-secondary);">
+          <li style="padding: 4px 0;">📱 Push: "Hoàn thành bài học hôm nay!"</li>
+          <li style="padding: 4px 0;">📖 Scene Practice đầy đủ 5 bước (nghe + nói + đọc)</li>
+          <li style="padding: 4px 0;">💬 AI Conversation ngắn (hoặc Writing mini-challenge)</li>
+          <li style="padding: 4px 0;">🔥 Streak cập nhật! +1 ngày</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- CONTENT LOOP -->
+<!-- ============================================ -->
+<section class="section">
+  <div class="container">
+    <div class="section-label">Bước 3</div>
+    <h2><span class="gradient-text">Vòng lặp nội dung</span> — Core Learning Loop</h2>
+    <p style="color: var(--text-secondary); margin-bottom: var(--space-xl);">Đây là vòng lặp cốt lõi mà user lặp đi lặp lại mỗi ngày. Mỗi lần đi qua vòng lặp = học sâu hơn.</p>
+
+    <!-- Visual loop -->
+    <div style="max-width: 700px; margin: 0 auto;">
+      <div class="flow-vertical">
+        <div class="flow-v-step">
+          <div class="flow-v-line">
+            <div class="flow-v-dot" style="background: var(--primary);">1</div>
+            <div class="flow-v-connector"></div>
+          </div>
+          <div class="flow-v-content">
+            <h4>Chọn / Tìm nội dung</h4>
+            <p>User browse Library hoặc nhận recommend từ AI. Hoặc paste URL riêng ("Bring Your Own Content").</p>
+            <span class="tag primary" style="margin-top: 4px;">Feature 8: Content Library</span>
+          </div>
+        </div>
+
+        <div class="flow-v-step">
+          <div class="flow-v-line">
+            <div class="flow-v-dot" style="background: var(--secondary);">2</div>
+            <div class="flow-v-connector"></div>
+          </div>
+          <div class="flow-v-content">
+            <h4>Xem / Nghe với Smart Transcript</h4>
+            <p>Video/audio phát, transcript cuộn đồng bộ. User tiếp nhận nội dung lần đầu.</p>
+            <span class="tag teal" style="margin-top: 4px;">Feature 1: Smart Transcript Player</span>
+          </div>
+        </div>
+
+        <div class="flow-v-step">
+          <div class="flow-v-line">
+            <div class="flow-v-dot" style="background: var(--accent);">3</div>
+            <div class="flow-v-connector"></div>
+          </div>
+          <div class="flow-v-content">
+            <h4>Tap từ mới → Hiểu 3 tầng</h4>
+            <p>Gặp từ lạ hoặc cultural reference → tap → popup Language / Context / Culture. Lưu vào vocab.</p>
+            <span class="tag pink" style="margin-top: 4px;">Feature 2: 3-Layer Word Explorer</span>
+          </div>
+        </div>
+
+        <div class="flow-v-step">
+          <div class="flow-v-line">
+            <div class="flow-v-dot" style="background: var(--warning);">4</div>
+            <div class="flow-v-connector"></div>
+          </div>
+          <div class="flow-v-content">
+            <h4>Gặp văn hoá thú vị → Deep Dive</h4>
+            <p>Từ có chiều sâu văn hoá → gợi ý "Tìm hiểu thêm" → Culture Deep Dive card. Lưu vào Passport.</p>
+            <span class="tag yellow" style="margin-top: 4px;">Feature 4: Culture Deep Dive Cards</span>
+          </div>
+        </div>
+
+        <div class="flow-v-step">
+          <div class="flow-v-line">
+            <div class="flow-v-dot" style="background: var(--success);">5</div>
+            <div class="flow-v-connector"></div>
+          </div>
+          <div class="flow-v-content">
+            <h4>Luyện tập Scene Practice</h4>
+            <p>5 bước: Watch → Explore → Listen & Fill → Speak → Rewatch. Rèn đa kỹ năng từ 1 scene.</p>
+            <span class="tag green" style="margin-top: 4px;">Feature 3: Scene Practice Mode</span>
+          </div>
+        </div>
+
+        <div class="flow-v-step">
+          <div class="flow-v-line">
+            <div class="flow-v-dot" style="background: var(--primary-dark);">6</div>
+            <div class="flow-v-connector"></div>
+          </div>
+          <div class="flow-v-content">
+            <h4>Hội thoại AI về chủ đề liên quan</h4>
+            <p>AI đóng vai nhân vật trong bối cảnh văn hoá vừa học. Luyện nói tự nhiên, nhận feedback.</p>
+            <span class="tag primary" style="margin-top: 4px;">Feature 5: AI Conversation Partner</span>
+          </div>
+        </div>
+
+        <div class="flow-v-step">
+          <div class="flow-v-line">
+            <div class="flow-v-dot" style="background: var(--danger);">7</div>
+          </div>
+          <div class="flow-v-content">
+            <h4>Vocab + Culture → Spaced Repetition</h4>
+            <p>Tất cả từ vựng và cultural notes vào hệ thống ôn tập. Quay lại vào ngày mai → vòng lặp tiếp tục.</p>
+            <span class="tag pink" style="margin-top: 4px;">Feature 7: Cultural Passport</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: var(--space-md);">
+        <div style="font-size: 1.5rem;">🔄</div>
+        <p style="color: var(--text-secondary); font-size: 0.9rem; font-style: italic;">Lặp lại mỗi ngày với nội dung mới → kiến thức ngôn ngữ & văn hoá tích luỹ dần</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- BOTTOM NAV STRUCTURE -->
+<!-- ============================================ -->
+<section class="section" style="background: var(--primary-bg);">
+  <div class="container">
+    <div class="section-label">Cấu trúc app</div>
+    <h2>4 tab chính <span class="gradient-text">trên thanh điều hướng</span></h2>
+
+    <div class="card-grid">
+      <div class="card" style="text-align: center; border-top: 3px solid var(--primary);">
+        <div style="font-size: 1.5rem; margin-bottom: 8px;">📥</div>
+        <h4>Thư viện</h4>
+        <p style="font-size: 0.85rem;">Browse, search, recommend. "Bring Your Own Content". Điểm vào app.</p>
+      </div>
+      <div class="card" style="text-align: center; border-top: 3px solid var(--secondary);">
+        <div style="font-size: 1.5rem; margin-bottom: 8px;">📖</div>
+        <h4>Đang học</h4>
+        <p style="font-size: 0.85rem;">Bài học đang làm dở, ôn tập hôm nay, streak. Home screen hàng ngày.</p>
+      </div>
+      <div class="card" style="text-align: center; border-top: 3px solid var(--accent);">
+        <div style="font-size: 1.5rem; margin-bottom: 8px;">💬</div>
+        <h4>Hội thoại</h4>
+        <p style="font-size: 0.85rem;">AI Conversation Partner. Chọn scenario hoặc free talk. Lịch sử hội thoại.</p>
+      </div>
+      <div class="card" style="text-align: center; border-top: 3px solid var(--warning);">
+        <div style="font-size: 1.5rem; margin-bottom: 8px;">🌍</div>
+        <h4>Passport</h4>
+        <p style="font-size: 0.85rem;">Progress, stamps, badges, skill breakdown, streak, weekly report.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- FEATURE PRIORITY -->
+<!-- ============================================ -->
+<section class="section">
+  <div class="container">
+    <div class="section-label">Độ ưu tiên</div>
+    <h2>Bảng ưu tiên <span class="gradient-text">tính năng cho Demo</span></h2>
+    <p style="color: var(--text-secondary); margin-bottom: var(--space-lg);">Mục tiêu demo: Team nội bộ hình dung được flow và tính năng chính.</p>
+
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Tính năng</th>
+            <th>JTBD phục vụ</th>
+            <th>Ưu tiên</th>
+            <th>Lý do</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>F1</strong></td>
+            <td><strong>Smart Transcript Player</strong></td>
+            <td>J1, J3, J6</td>
+            <td><span class="tag p0">P0 — Must have</span></td>
+            <td>Core experience, mọi thứ xây trên nó</td>
+          </tr>
+          <tr>
+            <td><strong>F2</strong></td>
+            <td><strong>3-Layer Word Explorer</strong></td>
+            <td>Tất cả</td>
+            <td><span class="tag p0">P0 — Must have</span></td>
+            <td>Unique selling point, tạo khác biệt</td>
+          </tr>
+          <tr>
+            <td><strong>F3</strong></td>
+            <td><strong>Scene Practice Mode</strong></td>
+            <td>J1, J4</td>
+            <td><span class="tag p0">P0 — Must have</span></td>
+            <td>Đây là "bài học" chính</td>
+          </tr>
+          <tr>
+            <td><strong>F4</strong></td>
+            <td><strong>Culture Deep Dive Cards</strong></td>
+            <td>J5</td>
+            <td><span class="tag p1">P1 — Should have</span></td>
+            <td>Tạo depth, demo có thể fake vài cards</td>
+          </tr>
+          <tr>
+            <td><strong>F5</strong></td>
+            <td><strong>AI Conversation Partner</strong></td>
+            <td>J4, J5</td>
+            <td><span class="tag p1">P1 — Should have</span></td>
+            <td>Rất hấp dẫn nhưng cần AI integration</td>
+          </tr>
+          <tr>
+            <td><strong>F6</strong></td>
+            <td><strong>Lyrics Lab</strong></td>
+            <td>J3</td>
+            <td><span class="tag p2">P2 — Nice to have</span></td>
+            <td>Engaging nhưng không phải core flow</td>
+          </tr>
+          <tr>
+            <td><strong>F7</strong></td>
+            <td><strong>Cultural Passport</strong></td>
+            <td>Tất cả</td>
+            <td><span class="tag p1">P1 — Should have</span></td>
+            <td>Gamification + tracking, demo dùng fake data</td>
+          </tr>
+          <tr>
+            <td><strong>F8</strong></td>
+            <td><strong>Content Library</strong></td>
+            <td>Tất cả</td>
+            <td><span class="tag p1">P1 — Should have</span></td>
+            <td>Content discovery, demo hardcode vài items</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="highlight-box purple" style="margin-top: var(--space-lg);">
+      <h4 style="margin-bottom: 8px;">Phạm vi Demo đề xuất</h4>
+      <ul style="font-size: 0.9rem; padding-left: 20px; color: var(--text-secondary);">
+        <li><strong>1 ngôn ngữ:</strong> Tiếng Anh cho người Việt (hoặc ngược lại)</li>
+        <li><strong>1 chủ đề văn hoá:</strong> Ẩm thực Mỹ (dễ hình dung, nhiều content sẵn)</li>
+        <li><strong>3-5 bài học mẫu</strong> với đầy đủ flow (Discover → Practice → Challenge → Reflect)</li>
+        <li><strong>Fake data</strong> cho gamification (XP, streak, badges, passport)</li>
+        <li><strong>1 AI conversation demo</strong> (role-play ordering food / cookout invitation)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SO SÁNH COMPETITORS -->
+<!-- ============================================ -->
+<section class="section" style="background: var(--primary-bg);">
+  <div class="container">
+    <div class="section-label">Cạnh tranh</div>
+    <h2>So sánh với <span class="gradient-text">các sản phẩm hiện có</span></h2>
+
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Tính năng</th>
+            <th>Duolingo</th>
+            <th>FluentU</th>
+            <th>Memrise</th>
+            <th style="background: var(--primary);">CultureLingo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Nội dung thực</strong> (phim, YouTube)</td>
+            <td>Ít</td>
+            <td>Nhiều</td>
+            <td>Có</td>
+            <td><strong style="color: var(--primary);">Trọng tâm</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Văn hoá tường minh</strong></td>
+            <td>Ngầm</td>
+            <td>Có mục riêng</td>
+            <td>Ngầm</td>
+            <td><strong style="color: var(--primary);">Trọng tâm + "Rich Points"</strong></td>
+          </tr>
+          <tr>
+            <td><strong>3-Layer Understanding</strong></td>
+            <td>Không</td>
+            <td>Không</td>
+            <td>Không</td>
+            <td><strong style="color: var(--primary);">Có — USP</strong></td>
+          </tr>
+          <tr>
+            <td><strong>4 kỹ năng đầy đủ</strong></td>
+            <td>Có</td>
+            <td>Nghe + Đọc chính</td>
+            <td>Nghe chính</td>
+            <td><strong style="color: var(--primary);">Có, thiết kế riêng từng kỹ năng</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Gamification</strong></td>
+            <td>Rất mạnh</td>
+            <td>Trung bình</td>
+            <td>Mạnh</td>
+            <td><strong style="color: var(--primary);">Mạnh + Cultural Passport</strong></td>
+          </tr>
+          <tr>
+            <td><strong>AI Conversation</strong></td>
+            <td>Có (premium)</td>
+            <td>Không</td>
+            <td>Không</td>
+            <td><strong style="color: var(--primary);">Có, role-play văn hoá</strong></td>
+          </tr>
+          <tr>
+            <td><strong>So sánh xuyên văn hoá</strong></td>
+            <td>Không</td>
+            <td>Không</td>
+            <td>Không</td>
+            <td><strong style="color: var(--primary);">Có — trong mọi bài học</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Bring Your Own Content</strong></td>
+            <td>Không</td>
+            <td>Không</td>
+            <td>Không</td>
+            <td><strong style="color: var(--primary);">Có — paste URL → bài học</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- CÂU HỎI MỞ -->
+<!-- ============================================ -->
+<section class="section">
+  <div class="container">
+    <div class="section-label">Thảo luận</div>
+    <h2>Các câu hỏi <span class="gradient-text">cần thảo luận tiếp</span></h2>
+
+    <div class="card-grid">
+      <div class="card" style="border-left: 4px solid var(--primary);">
+        <h4 style="color: var(--primary);">Về nội dung</h4>
+        <ul style="list-style: none; font-size: 0.88rem; color: var(--text-secondary);">
+          <li style="padding: 6px 0; border-bottom: 1px solid var(--border);">1. Ưu tiên ngôn ngữ nào cho demo? Anh-Việt? Hàn-Việt? Nhật-Việt?</li>
+          <li style="padding: 6px 0; border-bottom: 1px solid var(--border);">2. Ai tạo cultural notes? AI tự sinh hay cần content team biên soạn?</li>
+          <li style="padding: 6px 0;">3. Content trending (phim mới, bài hát mới) → cần pipeline tự động hay manual?</li>
+        </ul>
+      </div>
+
+      <div class="card" style="border-left: 4px solid var(--secondary);">
+        <h4 style="color: var(--secondary);">Về sản phẩm</h4>
+        <ul style="list-style: none; font-size: 0.88rem; color: var(--text-secondary);">
+          <li style="padding: 6px 0; border-bottom: 1px solid var(--border);">4. Monetization: Freemium (giới hạn bài/ngày) hay subscription?</li>
+          <li style="padding: 6px 0; border-bottom: 1px solid var(--border);">5. "Bring Your Own Content" có nên là core feature ngay từ đầu?</li>
+          <li style="padding: 6px 0;">6. Social features: Có cần community/forum/penpal không?</li>
+        </ul>
+      </div>
+
+      <div class="card" style="border-left: 4px solid var(--accent);">
+        <h4 style="color: var(--accent);">Về kỹ thuật</h4>
+        <ul style="list-style: none; font-size: 0.88rem; color: var(--text-secondary);">
+          <li style="padding: 6px 0; border-bottom: 1px solid var(--border);">7. AI model: Dùng gì cho pronunciation scoring, conversation, content generation?</li>
+          <li style="padding: 6px 0; border-bottom: 1px solid var(--border);">8. Demo scope: Bao nhiêu bài học? Bao nhiêu chủ đề?</li>
+          <li style="padding: 6px 0;">9. Tech stack: React Native? Flutter? Web responsive?</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- TỔNG KẾT -->
+<!-- ============================================ -->
+<section class="section" style="background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white;">
+  <div class="container" style="text-align: center;">
+    <h2 style="color: white;">Tóm tắt tầm nhìn sản phẩm</h2>
+    <p style="opacity: 0.85; max-width: 700px; margin: 0 auto var(--space-xl); font-size: 1.05rem;">
+      CultureLingo không dạy ngôn ngữ — CultureLingo giúp bạn <strong>hiểu một nền văn hoá</strong>, và ngôn ngữ là cánh cửa vào đó.
+    </p>
+
+    <div style="display: flex; justify-content: center; gap: var(--space-xl); flex-wrap: wrap;">
+      <div style="text-align: center;">
+        <div style="font-size: 2.5rem; font-weight: 800;">6</div>
+        <div style="font-size: 0.8rem; opacity: 0.7;">Jobs To Be Done</div>
+      </div>
+      <div style="text-align: center;">
+        <div style="font-size: 2.5rem; font-weight: 800;">8</div>
+        <div style="font-size: 0.8rem; opacity: 0.7;">Key Features</div>
+      </div>
+      <div style="text-align: center;">
+        <div style="font-size: 2.5rem; font-weight: 800;">3</div>
+        <div style="font-size: 0.8rem; opacity: 0.7;">Tầng hiểu biết</div>
+      </div>
+      <div style="text-align: center;">
+        <div style="font-size: 2.5rem; font-weight: 800;">1</div>
+        <div style="font-size: 0.8rem; opacity: 0.7;">Tầm nhìn</div>
+      </div>
+    </div>
+
+    <div style="margin-top: var(--space-xl);">
+      <a href="index.html" style="display: inline-block; padding: 12px 32px; background: white; color: var(--primary); border-radius: 50px; font-weight: 700; text-decoration: none; font-size: 0.95rem;">← Quay lại Tổng quan</a>
+    </div>
+  </div>
+</section>
+
+<!-- Pagination -->
+<div class="container">
+  <div class="pagination">
+    <a href="features-2.html">
+      <span>←</span>
+      <div>
+        <div class="page-label">Trang trước</div>
+        <strong>Tính năng 5-8</strong>
+      </div>
+    </a>
+    <a href="index.html">
+      <div style="text-align: right;">
+        <div class="page-label">Quay lại</div>
+        <strong>Tổng quan</strong>
+      </div>
+      <span>→</span>
+    </a>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer style="text-align: center; padding: var(--space-xl) 0; color: var(--text-light); font-size: 0.85rem;">
+  CultureLingo — Internal Product Demo — v0.2
+</footer>
+
+</body>
+</html>
